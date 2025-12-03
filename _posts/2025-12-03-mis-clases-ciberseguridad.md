@@ -4,7 +4,7 @@ date: 2025-12-03 18:00:00 +0100
 categories: [Docencia, Material]
 tags: [clases, pdf, hacking, siem, criptografia]
 image:
-  path: /assets/Portadas/hacking_etico.jpg
+  path: /assets/Portadas/hacking_etico.png
   alt: Fundamentos de Hacking Ético
 ---
 
@@ -20,7 +20,7 @@ Haz clic en la imagen o en el botón para descargar el documento original.
 
 <div align="center">
   <a href="/assets/slides/Inicio%20en%20Ciberseguridad.pdf" target="_blank">
-    <img src="/assets/Portadas/iniciociber.jpg" alt="Inicio Ciberseguridad" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);">
+    <img src="/assets/Portadas/iniciociber.png" alt="Inicio Ciberseguridad" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);">
   </a>
   <br><br>
   <a href="/assets/slides/Inicio%20en%20Ciberseguridad.pdf" class="btn btn--success btn--large">📥 Descargar PDF (Inicio)</a>
@@ -32,7 +32,7 @@ Haz clic en la imagen o en el botón para descargar el documento original.
 
 <div align="center">
   <a href="/assets/slides/Fundamentos%20Hacking%20Ético.pdf" target="_blank">
-    <img src="/assets/Portadas/hacking_etico.jpg" alt="Hacking Ético" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);">
+    <img src="/assets/Portadas/hacking_etico.png" alt="Hacking Ético" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);">
   </a>
   <br><br>
   <a href="/assets/slides/Fundamentos%20Hacking%20Ético.pdf" class="btn btn--primary btn--large">📥 Descargar PDF (Red Team)</a>
@@ -56,7 +56,7 @@ Haz clic en la imagen o en el botón para descargar el documento original.
 
 <div align="center">
   <a href="/assets/slides/cifrado-criptografia.pdf" target="_blank">
-    <img src="/assets/Portadas/cifrado.jpg" alt="Cifrado" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(100, 100, 255, 0.3);">
+    <img src="/assets/Portadas/cifrado.png" alt="Cifrado" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(100, 100, 255, 0.3);">
   </a>
   <br><br>
   <a href="/assets/slides/cifrado-criptografia.pdf" class="btn btn--danger btn--large">📥 Descargar PDF (Criptografía)</a>
