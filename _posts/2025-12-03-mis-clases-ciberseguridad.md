@@ -1,18 +1,18 @@
 ---
 title: "Mis clases de Ciberseguridad"
 date: 2025-12-03 18:00:00 +0100
-categories: [Docencia, Material]
-tags: [clases, pdf, hacking, siem, criptografia]
+categories: [Clases, Diapositivas]
+tags: [clases, pdf, hacking, siem, criptografia, roadmap]
 image:
-  path: /assets/Portadas/hacking_etico.png
-  alt: Fundamentos de Hacking Ético
+  path: /assets/Portadas/iniciociber.png
+  alt: Roadmap de ciberseguridad para principiantes
 ---
 
 Como docente, he impartido varias sesiones cubriendo los pilares de la seguridad ofensiva y defensiva. A continuación, comparto el material visual y las diapositivas utilizadas en clase.
 
-## Galería de Materiales
+## Temas de las clases
 
-Haz clic en la imagen o en el botón para descargar el documento original.
+Haz clic en el botón para descargar el documento original.
 
 ---
 
@@ -23,7 +23,9 @@ Haz clic en la imagen o en el botón para descargar el documento original.
     <img src="/assets/Portadas/iniciociber.png" alt="Inicio Ciberseguridad" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);">
   </a>
   <br><br>
-  <a href="/assets/slides/Inicio%20en%20Ciberseguridad.pdf" class="btn btn--success btn--large">📥 Descargar PDF (Inicio)</a>
+  <a href="/assets/slides/Inicio%20en%20Ciberseguridad.pdf" class="btn" style="background-color: #00b0ff; color: white !important; font-weight: bold; padding: 10px 20px; border-radius: 30px;">
+    📥 Descargar PDF (Roadmap)
+  </a>
 </div>
 
 <br>
@@ -35,7 +37,9 @@ Haz clic en la imagen o en el botón para descargar el documento original.
     <img src="/assets/Portadas/hacking_etico.png" alt="Hacking Ético" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);">
   </a>
   <br><br>
-  <a href="/assets/slides/Fundamentos%20Hacking%20Ético.pdf" class="btn btn--primary btn--large">📥 Descargar PDF (Red Team)</a>
+  <a href="/assets/slides/Fundamentos%20Hacking%20Ético.pdf" class="btn" style="background-color: #00b0ff; color: white !important; font-weight: bold; padding: 10px 20px; border-radius: 30px;">
+    📥 Descargar PDF (Red Team)
+  </a>
 </div>
 
 <br>
@@ -47,7 +51,9 @@ Haz clic en la imagen o en el botón para descargar el documento original.
     <img src="/assets/Portadas/siems.png" alt="SIEMs" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);">
   </a>
   <br><br>
-  <a href="/assets/slides/SIEMs.pdf" class="btn btn--info btn--large">📥 Descargar PDF (Blue Team)</a>
+  <a href="/assets/slides/SIEMs.pdf" class="btn" style="background-color: #00b0ff; color: white !important; font-weight: bold; padding: 10px 20px; border-radius: 30px;">
+    📥 Descargar PDF (Blue Team)
+  </a>
 </div>
 
 <br>
@@ -59,7 +65,9 @@ Haz clic en la imagen o en el botón para descargar el documento original.
     <img src="/assets/Portadas/cifrado.png" alt="Cifrado" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(100, 100, 255, 0.3);">
   </a>
   <br><br>
-  <a href="/assets/slides/cifrado-criptografia.pdf" class="btn btn--danger btn--large">📥 Descargar PDF (Criptografía)</a>
+  <a href="/assets/slides/cifrado-criptografia.pdf" class="btn" style="background-color: #00b0ff; color: white !important; font-weight: bold; padding: 10px 20px; border-radius: 30px;">
+    📥 Descargar PDF (Cifrado)
+  </a>
 </div>
 
 ---
