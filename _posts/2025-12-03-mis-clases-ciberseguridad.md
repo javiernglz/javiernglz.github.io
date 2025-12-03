@@ -56,11 +56,11 @@ Haz clic en la imagen o en el botón para descargar el documento original.
 ### 4. Criptografía y Cifrado
 
 <div align="center">
-  <a href="/assets/slides/Cifrado%20y%20Criptograf%C3%ADa.pdf" target="_blank">
+  <a href="/assets/slides/cifrado-criptografia.pdf" target="_blank">
     <img src="/assets/img/cifrado.jpg" alt="Cifrado" width="90%" style="border-radius: 10px; box-shadow: 0 0 15px rgba(100, 100, 255, 0.3);">
   </a>
   <br><br>
-  <a href="/assets/slides/Cifrado%20y%20Criptograf%C3%ADa.pdf" class="btn btn--danger btn--large">📥 Descargar PDF (Criptografía)</a>
+  <a href="/assets/slides/cifrado-criptografia.pdf" class="btn btn--danger btn--large">📥 Descargar PDF (Criptografía)</a>
 </div>
 
 ---
