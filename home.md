@@ -39,14 +39,14 @@ permalink: /blog/
   
   /* Título Principal */
   #sidebar .site-title {
-    background: linear-gradient(90deg, #9d50bb, #6e48aa) !important; /* Un poco más claro para leerse mejor */
+    background: linear-gradient(90deg, #540ba3, #4568dc) !important; /* Un poco más claro para leerse mejor */
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 700;
   }
   
   /* Subtítulo */
-  #sidebar .site-subtitle { color: #d4b3ff !important; }
+  #sidebar .site-subtitle { color: #828282 !important; }
 
   /* Enlaces (About, eJPT...) - Estado Normal */
   #sidebar .nav-link {
@@ -93,21 +93,31 @@ permalink: /blog/
   /* --- 3. PANEL DERECHO (TAGS) --- */
   
   /* Títulos de secciones */
-  #panel-wrapper h3, #panel-wrapper .panel-heading { color: #d4b3ff !important; }
+  #panel-wrapper h3, #panel-wrapper .panel-heading { color: #828282 !important; }
   
   /* Enlaces recientes */
   #panel-wrapper a { color: #a3b8ff !important; }
   #panel-wrapper a:hover { color: #ffffff !important; text-decoration: underline decoration-purple; }
 
   /* TAGS (Pastillas) */
-  .post-tag {
-    background: rgba(84, 11, 163, 0.2) !important;
-    color: #d4b3ff !important; /* Texto claro */
-    border: 1px solid rgba(84, 11, 163, 0.4) !important;
-  }
-  .post-tag:hover {
-    background: #540ba3 !important; /* Fondo sólido morado */
-    color: #ffffff !important; /* Texto blanco */
-    border-color: #540ba3 !important;
-  }
+.post-tag {
+  background: rgba(84, 11, 163, 0.2) !important;
+  color: #d4b3ff !important; /* Texto claro */
+  border: 1px solid rgba(84, 11, 163, 0.4) !important;
+  /* Incluimos un poco de radio base si no lo tiene ya, para que el hover se vea mejor */
+  border-radius: 5px; 
+}
+.post-tag:hover {
+  background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente (similar al nav-link hover) */
+  color: #ffffff !important; /* Texto blanco (similar al nav-link hover) */
+  border-color: #540ba3 !important; /* Mantenemos el color del borde si quieres que destaque, o lo ponemos a transparente */
+  
+  /* ESTILO AÑADIDO PARA EL EFECTO RESPLANDOR */
+  border-radius: 10px; /* Borde más redondeado (similar al nav-link hover) */
+  box-shadow: 0 0 15px rgba(84, 11, 163, 0.6); /* Resplandor más visible, ajustado un poco */
+  
+  /* Opcional: Para una transición más suave, podrías añadir esto al .post-tag base */
+  /* transition: all 0.3s ease; */
+}
+
 </style>
