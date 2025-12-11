@@ -1,6 +1,6 @@
 ---
 layout: page
-icon: fas fa-shield-virus
+icon: fas fa-shield-virus style="color: #7e0580;"
 order: 1
 title: eJPT
 permalink: /ejpt/
