@@ -35,66 +35,92 @@ permalink: /blog/
 </div>
 
 <style>
+
   /* 1. J.AVI SECURITY: Degradado Morado Oscuro -> Azul */
+
   #sidebar .site-title {
+
     background: linear-gradient(90deg, #540ba3, #4568dc) !important;
+
+    -webkit-background-clip: text !important;
+
+    -webkit-text-fill-color: transparent !important;
+
+    font-weight: 700;
+
+  /* --- 1. BARRA LATERAL --- */
+  
+  /* Título Principal */
+  #sidebar .site-title {
+    background: linear-gradient(90deg, #9d50bb, #6e48aa) !important; /* Un poco más claro para leerse mejor */
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 700;
   }
-
-  /* 2. TEXTOS SECUNDARIOS EN GRIS (Analyst, Updated, Trending) */
-  #sidebar .site-subtitle,
-  #panel-wrapper h3, 
-  #panel-wrapper .panel-heading,
-  #access-tags .post-tag { 
-    color: #828282 !important; /* Gris neutro */
-  }
-
-  /* Enlaces de "Recently Updated" en gris normal, morado al pasar ratón */
-  #panel-wrapper .access-text { color: #828282 !important; }
-  #panel-wrapper .access-text:hover { color: #540ba3 !important; }
-
-
-  /* 3. QUITAR LÍNEA NARANJA (Breadcrumbs y Artículos) */
   
-  /* Migas de pan (Home > Blog) */
-  #breadcrumb a { color: #828282 !important; }
-  #breadcrumb a:hover { 
-    color: #540ba3 !important; /* Se pone morado */
-    text-decoration: none !important; /* Sin subrayado */
+  /* Subtítulo */
+  #sidebar .site-subtitle { color: #d4b3ff !important; }
+
+  /* Enlaces (About, eJPT...) - Estado Normal */
+  #sidebar .nav-link {
+    color: #a3b8ff !important; /* Azul hielo suave */
+    transition: all 0.3s;
   }
+  #sidebar .nav-link i { color: #8eaafb !important; }
 
-  /* Títulos de Artículos al pasar el ratón */
-  .card-title a:hover {
-    color: #540ba3 !important;
-    background: none !important; /* Quitamos degradado en texto para legibilidad */
-    text-decoration-color: #540ba3 !important; /* Subrayado morado */
-    -webkit-text-fill-color: #540ba3 !important; /* Color sólido */
-  }
-
-
-  /* 4. TAGS (ETIQUETAS) - ESTILO TABS (Sin borde azul) */
-  
-  .post-tag {
-    background: rgba(255, 255, 255, 0.05) !important; /* Fondo gris muy sutil */
-    color: #a0a0a0 !important; /* Texto gris */
-    border: 1px solid transparent !important; /* QUITAR BORDE AZUL */
+  /* AL PASAR EL RATÓN (SOLUCIÓN DE LEGIBILIDAD) */
+  #sidebar .nav-link:hover {
+    color: #ffffff !important; /* TEXTO BLANCO (Se lee perfecto) */
+    background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente */
     border-radius: 10px;
-    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* Resplandor */
+  }
+  
+  #sidebar .nav-link:hover i {
+    color: #ffffff !important; /* Icono Blanco */
   }
 
-  /* Al pasar el ratón: Fondo Morado Desvanecido + Texto Blanco */
+  /* Iconos de abajo */
+  #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #a3b8ff !important; }
+  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #d4b3ff !important; }
+
+
+  /* --- 2. ARTÍCULOS --- */
+
+  /* Títulos Normales */
+  .card-title a { color: #e0e0e0 !important; }
+
+  /* Títulos al pasar el ratón (Usamos un lila muy claro para que se lea) */
+  .card-title a:hover {
+    color: #d4b3ff !important; /* Lila claro brillante */
+    text-shadow: 0 0 10px rgba(106, 17, 203, 0.6); /* Sombra morada */
+    text-decoration: none !important;
+  }
+
+  /* Arreglar el subrayado naranja de otros enlaces */
+  a:hover {
+    text-decoration-color: #9d50bb !important;
+  }
+
+
+  /* --- 3. PANEL DERECHO (TAGS) --- */
+  
+  /* Títulos de secciones */
+  #panel-wrapper h3, #panel-wrapper .panel-heading { color: #d4b3ff !important; }
+  
+  /* Enlaces recientes */
+  #panel-wrapper a { color: #a3b8ff !important; }
+  #panel-wrapper a:hover { color: #ffffff !important; text-decoration: underline decoration-purple; }
+
+  /* TAGS (Pastillas) */
+  .post-tag {
+    background: rgba(84, 11, 163, 0.2) !important;
+    color: #d4b3ff !important; /* Texto claro */
+    border: 1px solid rgba(84, 11, 163, 0.4) !important;
+  }
   .post-tag:hover {
-    background: rgba(84, 11, 163, 0.5) !important; /* Morado translúcido */
-    color: #ffffff !important;
-    border: 1px solid transparent !important;
-    box-shadow: 0 0 15px rgba(84, 11, 163, 0.3); /* Brillo suave */
-  }
-
-  /* Fix específico para el borde azul que a veces sale en Chirpy */
-  .post-tag:focus, .post-tag:active {
-    box-shadow: none !important;
-    outline: none !important;
+    background: #540ba3 !important; /* Fondo sólido morado */
+    color: #ffffff !important; /* Texto blanco */
+    border-color: #540ba3 !important;
   }
 </style>
