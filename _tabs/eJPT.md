@@ -1,6 +1,6 @@
 ---
 layout: page
-icon: fas fa-shield-virus style="color: #7e0580;"
+icon: fas fa-shield-virus
 order: 1
 title: eJPT
 permalink: /ejpt/
@@ -15,7 +15,7 @@ descargas:_</small>
 <style>
   /* 1. Título principal de la página con degradado */
   h1 {
-    background: linear-gradient(90deg, #b06ab3, #4568dc) !important;
+    background: linear-gradient(90deg, #b06ab3, #7e0580) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 800;
@@ -24,7 +24,7 @@ descargas:_</small>
 
   /* 2. Tu nombre en la Barra Lateral (J.avi Security) */
   #sidebar .site-title {
-    background: linear-gradient(90deg, #b06ab3, #4568dc) !important;
+    background: linear-gradient(90deg, #b06ab3, #7e0580) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
   }
@@ -40,7 +40,7 @@ descargas:_</small>
 
   /* 4. Icono del escudo en la barra lateral */
   #sidebar .nav-item.active .nav-link i {
-    color: #4568dc !important; /* Icono azul eléctrico */
+    color: #7e0580 !important;
   }
   
   /* 5. Subtítulos y enlaces (para que no sean verdes) */
