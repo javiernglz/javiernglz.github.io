@@ -4,154 +4,204 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J.avi Security | Intro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- CONFIGURACIÓN DE COLORES (Dark Neumorphism) --- */
+        /* --- CONFIGURACIÓN DE COLORES --- */
         :root {
-            --bg-color: #212529; /* Gris oscuro similar a Chirpy */
+            --bg-dark: #121212;
+            --bg-light: #1f2226;
+            --accent-color: #00d1b2; /* Verde Cyan */
             --text-color: #e0e0e0;
-            --accent-color: #00d1b2; /* Verde/Azul hacker */
-            --shadow-light: rgba(255, 255, 255, 0.05);
-            --shadow-dark: rgba(0, 0, 0, 0.6);
+            --card-bg: rgba(33, 37, 41, 0.7); /* Semitransparente */
         }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Fira Code', monospace;
+            height: 100vh;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            font-family: 'Courier New', Courier, monospace; /* Fuente Hacker */
-            overflow: hidden;
+            color: var(--text-color);
+            background-color: var(--bg-dark);
+            position: relative;
         }
 
-        /* --- CONTENEDOR NEUMORPHISM --- */
+        /* --- FONDO DINÁMICO (Animación de fondo) --- */
+        .background-anim {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #0f1012, #1a1d21, #2c3035, #121212);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Cubos flotantes (Efecto Cyber) */
+        .cube {
+            position: absolute;
+            top: 80vh;
+            left: 45vw;
+            width: 10px;
+            height: 10px;
+            border: solid 1px rgba(0, 209, 178, 0.2);
+            transform-origin: top left;
+            transform: scale(0) rotate(0deg) translate(-50%, -50%);
+            animation: cube 12s ease-in forwards infinite;
+        }
+        .cube:nth-child(2n) { border-color: rgba(255, 255, 255, 0.1); }
+        .cube:nth-child(2) { animation-delay: 2s; left: 25vw; top: 40vh; }
+        .cube:nth-child(3) { animation-delay: 4s; left: 75vw; top: 50vh; }
+        .cube:nth-child(4) { animation-delay: 6s; left: 90vw; top: 10vh; }
+        .cube:nth-child(5) { animation-delay: 8s; left: 10vw; top: 85vh; }
+
+        @keyframes cube {
+            from { transform: scale(0) rotate(0deg) translate(-50%, -50%); opacity: 1; }
+            to { transform: scale(20) rotate(960deg) translate(-50%, -50%); opacity: 0; }
+        }
+
+        /* --- TARJETA PRINCIPAL (Glassmorphism) --- */
         .card {
             width: 90%;
-            max-width: 500px;
-            padding: 40px;
-            border-radius: 30px;
-            background: var(--bg-color);
-            /* La magia del Neumorfismo: Sombras claras y oscuras */
-            box-shadow:  20px 20px 60px var(--shadow-dark),
-                        -20px -20px 60px var(--shadow-light);
+            max-width: 550px;
+            padding: 50px 30px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            /* Desenfoque del fondo (Glassmorphism) */
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
             text-align: center;
             position: relative;
         }
 
-        /* --- FOTO DE PERFIL (Opcional, si tienes una URL) --- */
+        /* --- FOTO DE PERFIL --- */
         .avatar {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            margin: 0 auto 20px;
-            background: var(--bg-color);
-            box-shadow: inset 5px 5px 10px var(--shadow-dark),
-                        inset -5px -5px 10px var(--shadow-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
+            margin: 0 auto 30px;
+            padding: 3px;
+            /* Borde degradado animado */
+            background: linear-gradient(45deg, var(--accent-color), #212529);
+            box-shadow: 0 0 20px rgba(0, 209, 178, 0.3);
+            object-fit: cover;
         }
 
-        /* --- EFECTO DE ESCRITURA (Typewriter) --- */
+        /* --- TEXTO TYPEWRITER --- */
         .typing-container {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            min-height: 3em; /* Reserva espacio para 2 líneas */
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            text-align: left; /* Alineado a la izquierda para parecer código */
+            padding-left: 20px; /* Margen para centrarlo visualmente */
+            line-height: 1.6;
+            min-height: 4em; /* Espacio reservado para 2 líneas */
+            font-weight: 400;
         }
-        
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
         .cursor {
             display: inline-block;
-            width: 3px;
+            width: 8px;
+            height: 1.2rem;
             background-color: var(--accent-color);
+            margin-left: 5px;
             animation: blink 1s infinite;
+            vertical-align: middle;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        /* --- BOTÓN NEUMORPHISM --- */
+        /* --- BOTÓN DE ENTRADA --- */
         .btn-enter {
             display: inline-block;
-            padding: 15px 40px;
-            font-size: 1.2rem;
+            padding: 15px 50px;
+            font-size: 1.1rem;
             color: var(--accent-color);
             text-decoration: none;
             border-radius: 50px;
-            background: var(--bg-color);
-            box-shadow:  8px 8px 16px var(--shadow-dark),
-                        -8px -8px 16px var(--shadow-light);
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--accent-color);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.05);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
             font-weight: bold;
-            cursor: pointer;
         }
 
-        /* Efecto al presionar el botón */
-        .btn-enter:active, .btn-enter:hover {
-            box-shadow: inset 8px 8px 16px var(--shadow-dark),
-                        inset -8px -8px 16px var(--shadow-light);
-            color: #fff;
+        .btn-enter:hover {
+            background: var(--accent-color);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 209, 178, 0.6);
         }
 
     </style>
 </head>
 <body>
 
+    <div class="background-anim"></div>
+    <div class="cube"></div><div class="cube"></div><div class="cube"></div><div class="cube"></div><div class="cube"></div>
+
     <div class="card">
         <img src="/assets/img/favicons/web-app-manifest-512x512.png" 
              class="avatar" 
-             alt="Logo J.avi Security"
-             style="padding: 0; object-fit: cover;">
+             alt="J.avi Security">
         
         <div class="typing-container">
-            <span id="text"></span><span class="cursor">|</span>
-        </div>
+            <span id="line1"></span><br> <span id="line2"></span><span class="cursor"></span> </div>
 
         <a href="/blog/" class="btn-enter">
-            >_ ENTRAR AL BLOG
+            >_ Entrar al Blog
         </a>
     </div>
 
     <script>
-        const textElement = document.getElementById('text');
-        const phrases = ["Hola, soy J.avi", "Pulsa el botón para descubrir más."];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typeSpeed = 100;
+        // --- CONFIGURACIÓN DE FRASES ---
+        const phrase1 = "Hola, soy Javier."; 
+        const phrase2 = "Red Teamer & Pentester.";
 
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            
-            if (isDeleting) {
-                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-                typeSpeed = 50; // Borra más rápido
-            } else {
-                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-                typeSpeed = 100; // Escribe normal
+        const speed = 70; // Velocidad de escritura (ms)
+        let i = 0;
+        let j = 0;
+
+        function typeWriter() {
+            // Escribir Línea 1
+            if (i < phrase1.length) {
+                document.getElementById("line1").innerHTML += phrase1.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } 
+            // Cuando termine Línea 1, pasar a Línea 2
+            else if (j < phrase2.length) {
+                // Añadir una clase para colorear la segunda línea (opcional)
+                if(j===0) document.getElementById("line2").classList.add("highlight");
+                
+                document.getElementById("line2").innerHTML += phrase2.charAt(j);
+                j++;
+                setTimeout(typeWriter, speed);
             }
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                typeSpeed = 2000; // Espera al terminar la frase
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500; // Espera antes de escribir la siguiente
-            }
-
-            setTimeout(type, typeSpeed);
+            // Cuando todo termine, el cursor sigue parpadeando al final
         }
 
-        document.addEventListener('DOMContentLoaded', type);
+        // Iniciar al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeWriter, 500); // Pequeña pausa inicial
+        });
     </script>
 </body>
 </html>
