@@ -1,7 +1,7 @@
 ---
 layout: page
-icon: fa-light fa-shield-virus
-order: 2
+icon: fas fa-shield-virus
+order: 1
 title: eCPPTv3
 permalink: /ecppt/
 ---
