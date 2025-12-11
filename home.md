@@ -35,11 +35,11 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 1. BARRA LATERAL (IZQUIERDA) --- */
+  /* --- 1. BARRA LATERAL --- */
   
-  /* Título Principal (J.avi Security) con el NUEVO degradado */
+  /* Título Principal */
   #sidebar .site-title {
-    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
+    background: linear-gradient(90deg, #9d50bb, #6e48aa) !important; /* Un poco más claro para leerse mejor */
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 700;
@@ -48,77 +48,66 @@ permalink: /blog/
   /* Subtítulo */
   #sidebar .site-subtitle { color: #d4b3ff !important; }
 
-  /* Enlaces del Menú (Home, eJPT, About...) - Adiós Gris */
+  /* Enlaces (About, eJPT...) - Estado Normal */
   #sidebar .nav-link {
     color: #a3b8ff !important; /* Azul hielo suave */
+    transition: all 0.3s;
   }
-  #sidebar .nav-link i {
-    color: #8eaafb !important; /* Iconos azulados */
-  }
+  #sidebar .nav-link i { color: #8eaafb !important; }
 
-  /* AL PASAR EL RATÓN (HOVER) - Adiós Rosa */
+  /* AL PASAR EL RATÓN (SOLUCIÓN DE LEGIBILIDAD) */
   #sidebar .nav-link:hover {
-    color: #540ba3 !important; /* Tu morado eléctrico */
-    background: rgba(84, 11, 163, 0.05) !important; /* Fondo muy sutil */
+    color: #ffffff !important; /* TEXTO BLANCO (Se lee perfecto) */
+    background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* Resplandor */
   }
+  
   #sidebar .nav-link:hover i {
-    color: #540ba3 !important; /* Icono morado */
+    color: #ffffff !important; /* Icono Blanco */
   }
 
-  /* Pie de página (Iconos sociales y Copyright) */
-  #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i, #sidebar .sidebar-bottom p {
-    color: #a3b8ff !important;
-  }
-  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover {
-    color: #540ba3 !important;
-  }
+  /* Iconos de abajo */
+  #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #a3b8ff !important; }
+  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #d4b3ff !important; }
 
 
-  /* --- 2. CONTENIDO CENTRAL --- */
+  /* --- 2. ARTÍCULOS --- */
 
-  /* Títulos de Artículos */
-  .card-title a { color: #e0e0e0 !important; transition: all 0.3s; }
-  
+  /* Títulos Normales */
+  .card-title a { color: #e0e0e0 !important; }
+
+  /* Títulos al pasar el ratón (Usamos un lila muy claro para que se lea) */
   .card-title a:hover {
-    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
+    color: #d4b3ff !important; /* Lila claro brillante */
+    text-shadow: 0 0 10px rgba(106, 17, 203, 0.6); /* Sombra morada */
+    text-decoration: none !important;
   }
 
-  /* ELIMINAR LÍNEA NARANJA AL PASAR EL RATÓN */
-  /* Forzamos que cualquier enlace tenga decoración morada */
+  /* Arreglar el subrayado naranja de otros enlaces */
   a:hover {
-    text-decoration-color: #540ba3 !important;
+    text-decoration-color: #9d50bb !important;
   }
 
 
-  /* --- 3. PANEL DERECHO (TAGS Y RECIENTES) --- */
-
-  /* Títulos de secciones (Trending Tags, Recent Update) */
-  #panel-wrapper h3, #panel-wrapper .panel-heading {
-    color: #d4b3ff !important;
-  }
-
-  /* Enlaces de "Recently Updated" */
-  #panel-wrapper a {
-    color: #a3b8ff !important;
-  }
-  #panel-wrapper a:hover {
-    color: #540ba3 !important;
-    text-decoration: none;
-  }
-
-  /* TAGS (Las pastillas grises) -> Ahora Moradas */
-  .post-tag {
-    background: rgba(84, 11, 163, 0.15) !important; /* Fondo morado oscuro */
-    color: #d4b3ff !important; /* Texto lila */
-    border: 1px solid rgba(84, 11, 163, 0.3) !important;
-  }
+  /* --- 3. PANEL DERECHO (TAGS) --- */
   
-  /* Al pasar el ratón por un Tag */
+  /* Títulos de secciones */
+  #panel-wrapper h3, #panel-wrapper .panel-heading { color: #d4b3ff !important; }
+  
+  /* Enlaces recientes */
+  #panel-wrapper a { color: #a3b8ff !important; }
+  #panel-wrapper a:hover { color: #ffffff !important; text-decoration: underline decoration-purple; }
+
+  /* TAGS (Pastillas) */
+  .post-tag {
+    background: rgba(84, 11, 163, 0.2) !important;
+    color: #d4b3ff !important; /* Texto claro */
+    border: 1px solid rgba(84, 11, 163, 0.4) !important;
+  }
   .post-tag:hover {
-    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
-    color: white !important;
-    border: 1px solid transparent !important;
+    background: #540ba3 !important; /* Fondo sólido morado */
+    color: #ffffff !important; /* Texto blanco */
+    border-color: #540ba3 !important;
   }
 </style>
