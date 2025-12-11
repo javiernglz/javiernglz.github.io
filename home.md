@@ -35,79 +35,93 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 1. BARRA LATERAL --- */
+  /* --- 1. BARRA LATERAL (J.avi Security) --- */
   
-  /* Título Principal */
+  /* Título Principal: Vuelta al degradado eléctrico original */
   #sidebar .site-title {
-    background: linear-gradient(90deg, #9d50bb, #6e48aa) !important; /* Un poco más claro para leerse mejor */
+    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 700;
   }
   
-  /* Subtítulo */
-  #sidebar .site-subtitle { color: #d4b3ff !important; }
+  /* Subtítulo: Gris normal y elegante */
+  #sidebar .site-subtitle { color: #8c8c8c !important; }
 
-  /* Enlaces (About, eJPT...) - Estado Normal */
+
+  /* --- 2. MENÚ IZQUIERDO (Estilo Glow) --- */
+  
+  /* Estado normal (Gris azulado suave) */
   #sidebar .nav-link {
-    color: #a3b8ff !important; /* Azul hielo suave */
+    color: #a0a0a0 !important;
     transition: all 0.3s;
   }
-  #sidebar .nav-link i { color: #8eaafb !important; }
+  #sidebar .nav-link i { color: #8c8c8c !important; }
 
-  /* AL PASAR EL RATÓN (SOLUCIÓN DE LEGIBILIDAD) */
+  /* Hover: Texto Blanco + Fondo Morado Desvanecido */
   #sidebar .nav-link:hover {
-    color: #ffffff !important; /* TEXTO BLANCO (Se lee perfecto) */
-    background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente */
-    border-radius: 10px;
+    color: #ffffff !important;
+    background: rgba(84, 11, 163, 0.5) !important; /* El desvanecido morado */
     box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* Resplandor */
+    border-radius: 10px;
   }
-  
-  #sidebar .nav-link:hover i {
-    color: #ffffff !important; /* Icono Blanco */
-  }
+  #sidebar .nav-link:hover i { color: #ffffff !important; }
 
-  /* Iconos de abajo */
-  #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #a3b8ff !important; }
-  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #d4b3ff !important; }
+  /* Iconos sociales de abajo */
+  #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #8c8c8c !important; }
+  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #540ba3 !important; }
 
 
-  /* --- 2. ARTÍCULOS --- */
+  /* --- 3. CONTENIDO CENTRAL Y BREADCRUMBS --- */
 
-  /* Títulos Normales */
-  .card-title a { color: #e0e0e0 !important; }
-
-  /* Títulos al pasar el ratón (Usamos un lila muy claro para que se lea) */
-  .card-title a:hover {
-    color: #d4b3ff !important; /* Lila claro brillante */
-    text-shadow: 0 0 10px rgba(106, 17, 203, 0.6); /* Sombra morada */
-    text-decoration: none !important;
-  }
-
-  /* Arreglar el subrayado naranja de otros enlaces */
+  /* Forzar que CUALQUIER enlace al pasar el ratón sea morado (Adiós Naranja) */
   a:hover {
-    text-decoration-color: #9d50bb !important;
+    color: #540ba3 !important;
+    text-decoration-color: #540ba3 !important;
+  }
+
+  /* Breadcrumbs (Home > Blog) */
+  nav[aria-label="breadcrumb"] a { color: #a0a0a0 !important; }
+  nav[aria-label="breadcrumb"] a:hover { color: #540ba3 !important; }
+
+  /* Títulos de Artículos */
+  .card-title a { color: #e0e0e0 !important; }
+  .card-title a:hover {
+    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: none !important;
+    text-decoration: none !important; /* Quitamos subrayado feo */
+    border-bottom: none !important; /* Aseguramos que no salga línea naranja */
   }
 
 
-  /* --- 3. PANEL DERECHO (TAGS) --- */
+  /* --- 4. PANEL DERECHO (TAGS) --- */
   
-  /* Títulos de secciones */
-  #panel-wrapper h3, #panel-wrapper .panel-heading { color: #d4b3ff !important; }
+  /* Títulos en Gris Normal */
+  #panel-wrapper h3, #panel-wrapper .panel-heading { 
+    color: #8c8c8c !important; 
+    font-size: 1rem !important; /* Un poco más fino */
+  }
   
-  /* Enlaces recientes */
-  #panel-wrapper a { color: #a3b8ff !important; }
-  #panel-wrapper a:hover { color: #ffffff !important; text-decoration: underline decoration-purple; }
+  /* Enlaces recientes en gris */
+  #panel-wrapper a { color: #a0a0a0 !important; }
+  #panel-wrapper a:hover { color: #540ba3 !important; }
 
-  /* TAGS (Pastillas) */
+  /* TRENDING TAGS: Estilo idéntico a los Tabs */
   .post-tag {
-    background: rgba(84, 11, 163, 0.2) !important;
-    color: #d4b3ff !important; /* Texto claro */
-    border: 1px solid rgba(84, 11, 163, 0.4) !important;
+    background: rgba(255, 255, 255, 0.05) !important; /* Fondo sutil por defecto */
+    color: #a0a0a0 !important; /* Letra gris */
+    border: 1px solid transparent !important; /* Sin bordes azules */
+    border-radius: 10px; /* Redonditos */
+    transition: all 0.3s ease;
   }
+  
+  /* Al pasar el ratón: Glow Morado + Texto Blanco */
   .post-tag:hover {
-    background: #540ba3 !important; /* Fondo sólido morado */
-    color: #ffffff !important; /* Texto blanco */
-    border-color: #540ba3 !important;
+    background: rgba(84, 11, 163, 0.5) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* El mismo brillo que los tabs */
+    border: 1px solid transparent !important;
   }
 </style>
