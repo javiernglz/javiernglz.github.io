@@ -37,7 +37,7 @@ permalink: /blog/
 <style>
   /* --- 1. BARRA LATERAL (IZQUIERDA) --- */
   
-  /* Título Principal (J.avi Security) */
+  /* Título Principal (J.avi Security) con el NUEVO degradado */
   #sidebar .site-title {
     background: linear-gradient(90deg, #540ba3, #4568dc) !important;
     -webkit-background-clip: text !important;
@@ -48,7 +48,7 @@ permalink: /blog/
   /* Subtítulo */
   #sidebar .site-subtitle { color: #d4b3ff !important; }
 
-  /* Enlaces del Menú (eJPT, About...) - Adiós Gris */
+  /* Enlaces del Menú (Home, eJPT, About...) - Adiós Gris */
   #sidebar .nav-link {
     color: #a3b8ff !important; /* Azul hielo suave */
   }
@@ -56,12 +56,13 @@ permalink: /blog/
     color: #8eaafb !important; /* Iconos azulados */
   }
 
-  /* Al pasar el ratón por los enlaces del menú */
+  /* AL PASAR EL RATÓN (HOVER) - Adiós Rosa */
   #sidebar .nav-link:hover {
-    color: #d4b3ff !important; /* Se iluminan en lila */
+    color: #540ba3 !important; /* Tu morado eléctrico */
+    background: rgba(84, 11, 163, 0.05) !important; /* Fondo muy sutil */
   }
   #sidebar .nav-link:hover i {
-    color: #540ba3 !important; /* Icono se pone morado oscuro */
+    color: #540ba3 !important; /* Icono morado */
   }
 
   /* Pie de página (Iconos sociales y Copyright) */
@@ -77,6 +78,7 @@ permalink: /blog/
 
   /* Títulos de Artículos */
   .card-title a { color: #e0e0e0 !important; transition: all 0.3s; }
+  
   .card-title a:hover {
     background: linear-gradient(90deg, #540ba3, #4568dc) !important;
     -webkit-background-clip: text !important;
@@ -84,9 +86,9 @@ permalink: /blog/
   }
 
   /* ELIMINAR LÍNEA NARANJA AL PASAR EL RATÓN */
+  /* Forzamos que cualquier enlace tenga decoración morada */
   a:hover {
-    text-decoration-color: #540ba3 !important; /* Subrayado morado */
-    border-bottom-color: #540ba3 !important; /* Borde inferior morado */
+    text-decoration-color: #540ba3 !important;
   }
 
 
@@ -94,7 +96,7 @@ permalink: /blog/
 
   /* Títulos de secciones (Trending Tags, Recent Update) */
   #panel-wrapper h3, #panel-wrapper .panel-heading {
-    color: #d4b3ff !important; /* Lila claro */
+    color: #d4b3ff !important;
   }
 
   /* Enlaces de "Recently Updated" */
@@ -103,18 +105,19 @@ permalink: /blog/
   }
   #panel-wrapper a:hover {
     color: #540ba3 !important;
+    text-decoration: none;
   }
 
   /* TAGS (Las pastillas grises) -> Ahora Moradas */
   .post-tag {
-    background: rgba(84, 11, 163, 0.15) !important; /* Fondo morado transparente */
+    background: rgba(84, 11, 163, 0.15) !important; /* Fondo morado oscuro */
     color: #d4b3ff !important; /* Texto lila */
-    border: 1px solid rgba(84, 11, 163, 0.3) !important; /* Borde fino morado */
+    border: 1px solid rgba(84, 11, 163, 0.3) !important;
   }
   
   /* Al pasar el ratón por un Tag */
   .post-tag:hover {
-    background: linear-gradient(90deg, #540ba3, #4568dc) !important; /* Degradado Space */
+    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
     color: white !important;
     border: 1px solid transparent !important;
   }
