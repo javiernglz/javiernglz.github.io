@@ -35,93 +35,66 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 1. BARRA LATERAL (J.avi Security) --- */
-  
-  /* Título Principal: Vuelta al degradado eléctrico original */
+  /* 1. J.AVI SECURITY: Degradado Morado Oscuro -> Azul */
   #sidebar .site-title {
     background: linear-gradient(90deg, #540ba3, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 700;
   }
+
+  /* 2. TEXTOS SECUNDARIOS EN GRIS (Analyst, Updated, Trending) */
+  #sidebar .site-subtitle,
+  #panel-wrapper h3, 
+  #panel-wrapper .panel-heading,
+  #access-tags .post-tag { 
+    color: #828282 !important; /* Gris neutro */
+  }
+
+  /* Enlaces de "Recently Updated" en gris normal, morado al pasar ratón */
+  #panel-wrapper .access-text { color: #828282 !important; }
+  #panel-wrapper .access-text:hover { color: #540ba3 !important; }
+
+
+  /* 3. QUITAR LÍNEA NARANJA (Breadcrumbs y Artículos) */
   
-  /* Subtítulo: Gris normal y elegante */
-  #sidebar .site-subtitle { color: #8c8c8c !important; }
-
-
-  /* --- 2. MENÚ IZQUIERDO (Estilo Glow) --- */
-  
-  /* Estado normal (Gris azulado suave) */
-  #sidebar .nav-link {
-    color: #a0a0a0 !important;
-    transition: all 0.3s;
-  }
-  #sidebar .nav-link i { color: #8c8c8c !important; }
-
-  /* Hover: Texto Blanco + Fondo Morado Desvanecido */
-  #sidebar .nav-link:hover {
-    color: #ffffff !important;
-    background: rgba(84, 11, 163, 0.5) !important; /* El desvanecido morado */
-    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* Resplandor */
-    border-radius: 10px;
-  }
-  #sidebar .nav-link:hover i { color: #ffffff !important; }
-
-  /* Iconos sociales de abajo */
-  #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #8c8c8c !important; }
-  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #540ba3 !important; }
-
-
-  /* --- 3. CONTENIDO CENTRAL Y BREADCRUMBS --- */
-
-  /* Forzar que CUALQUIER enlace al pasar el ratón sea morado (Adiós Naranja) */
-  a:hover {
-    color: #540ba3 !important;
-    text-decoration-color: #540ba3 !important;
+  /* Migas de pan (Home > Blog) */
+  #breadcrumb a { color: #828282 !important; }
+  #breadcrumb a:hover { 
+    color: #540ba3 !important; /* Se pone morado */
+    text-decoration: none !important; /* Sin subrayado */
   }
 
-  /* Breadcrumbs (Home > Blog) */
-  nav[aria-label="breadcrumb"] a { color: #a0a0a0 !important; }
-  nav[aria-label="breadcrumb"] a:hover { color: #540ba3 !important; }
-
-  /* Títulos de Artículos */
-  .card-title a { color: #e0e0e0 !important; }
+  /* Títulos de Artículos al pasar el ratón */
   .card-title a:hover {
-    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    text-shadow: none !important;
-    text-decoration: none !important; /* Quitamos subrayado feo */
-    border-bottom: none !important; /* Aseguramos que no salga línea naranja */
+    color: #540ba3 !important;
+    background: none !important; /* Quitamos degradado en texto para legibilidad */
+    text-decoration-color: #540ba3 !important; /* Subrayado morado */
+    -webkit-text-fill-color: #540ba3 !important; /* Color sólido */
   }
 
 
-  /* --- 4. PANEL DERECHO (TAGS) --- */
+  /* 4. TAGS (ETIQUETAS) - ESTILO TABS (Sin borde azul) */
   
-  /* Títulos en Gris Normal */
-  #panel-wrapper h3, #panel-wrapper .panel-heading { 
-    color: #8c8c8c !important; 
-    font-size: 1rem !important; /* Un poco más fino */
-  }
-  
-  /* Enlaces recientes en gris */
-  #panel-wrapper a { color: #a0a0a0 !important; }
-  #panel-wrapper a:hover { color: #540ba3 !important; }
-
-  /* TRENDING TAGS: Estilo idéntico a los Tabs */
   .post-tag {
-    background: rgba(255, 255, 255, 0.05) !important; /* Fondo sutil por defecto */
-    color: #a0a0a0 !important; /* Letra gris */
-    border: 1px solid transparent !important; /* Sin bordes azules */
-    border-radius: 10px; /* Redonditos */
+    background: rgba(255, 255, 255, 0.05) !important; /* Fondo gris muy sutil */
+    color: #a0a0a0 !important; /* Texto gris */
+    border: 1px solid transparent !important; /* QUITAR BORDE AZUL */
+    border-radius: 10px;
     transition: all 0.3s ease;
   }
-  
-  /* Al pasar el ratón: Glow Morado + Texto Blanco */
+
+  /* Al pasar el ratón: Fondo Morado Desvanecido + Texto Blanco */
   .post-tag:hover {
-    background: rgba(84, 11, 163, 0.5) !important;
+    background: rgba(84, 11, 163, 0.5) !important; /* Morado translúcido */
     color: #ffffff !important;
-    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* El mismo brillo que los tabs */
     border: 1px solid transparent !important;
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.3); /* Brillo suave */
+  }
+
+  /* Fix específico para el borde azul que a veces sale en Chirpy */
+  .post-tag:focus, .post-tag:active {
+    box-shadow: none !important;
+    outline: none !important;
   }
 </style>
