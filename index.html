@@ -1,4 +1,157 @@
----
-layout: home
-# Index page
----
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.avi Security | Intro</title>
+    <style>
+        /* --- CONFIGURACIÓN DE COLORES (Dark Neumorphism) --- */
+        :root {
+            --bg-color: #212529; /* Gris oscuro similar a Chirpy */
+            --text-color: #e0e0e0;
+            --accent-color: #00d1b2; /* Verde/Azul hacker */
+            --shadow-light: rgba(255, 255, 255, 0.05);
+            --shadow-dark: rgba(0, 0, 0, 0.6);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Courier New', Courier, monospace; /* Fuente Hacker */
+            overflow: hidden;
+        }
+
+        /* --- CONTENEDOR NEUMORPHISM --- */
+        .card {
+            width: 90%;
+            max-width: 500px;
+            padding: 40px;
+            border-radius: 30px;
+            background: var(--bg-color);
+            /* La magia del Neumorfismo: Sombras claras y oscuras */
+            box-shadow:  20px 20px 60px var(--shadow-dark),
+                        -20px -20px 60px var(--shadow-light);
+            text-align: center;
+            position: relative;
+        }
+
+        /* --- FOTO DE PERFIL (Opcional, si tienes una URL) --- */
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: var(--bg-color);
+            box-shadow: inset 5px 5px 10px var(--shadow-dark),
+                        inset -5px -5px 10px var(--shadow-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        /* --- EFECTO DE ESCRITURA (Typewriter) --- */
+        .typing-container {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            min-height: 3em; /* Reserva espacio para 2 líneas */
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--accent-color);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* --- BOTÓN NEUMORPHISM --- */
+        .btn-enter {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            border-radius: 50px;
+            background: var(--bg-color);
+            box-shadow:  8px 8px 16px var(--shadow-dark),
+                        -8px -8px 16px var(--shadow-light);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Efecto al presionar el botón */
+        .btn-enter:active, .btn-enter:hover {
+            box-shadow: inset 8px 8px 16px var(--shadow-dark),
+                        inset -8px -8px 16px var(--shadow-light);
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="/assets/img/favicons/web-app-manifest-512x512.png" 
+             class="avatar" 
+             alt="Logo J.avi Security"
+             style="padding: 0; object-fit: cover;">
+        
+        <div class="typing-container">
+            <span id="text"></span><span class="cursor">|</span>
+        </div>
+
+        <a href="/blog/" class="btn-enter">
+            >_ ENTRAR AL BLOG
+        </a>
+    </div>
+
+    <script>
+        const textElement = document.getElementById('text');
+        const phrases = ["Hola, soy J.avi", "Pulsa el botón para descubrir más."];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50; // Borra más rápido
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100; // Escribe normal
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Espera al terminar la frase
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500; // Espera antes de escribir la siguiente
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
+</body>
+</html>

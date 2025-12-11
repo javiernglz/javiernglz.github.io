@@ -15,7 +15,7 @@ descargas:_</small>
 
 ###  [2. Metodología Técnica de Pentesting y AD]({% post_url 
 2025-12-11-eCPPTv3 %})
-Mi "Cheat Sheet" personal paso a paso con los comandos exactos para 
+> Mi "Cheat Sheet" personal paso a paso con los comandos exactos para 
 `Enumeración`, `Active Directory` y `Pivoting`.
 
 ---
