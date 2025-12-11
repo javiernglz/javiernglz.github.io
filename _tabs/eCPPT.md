@@ -25,4 +25,29 @@ descargas:_</small>
 presentarse al examen.
 
 ![Mindmap eCPPTv3](/assets/slides/mindmap_ecppt.png){: .shadow .rounded }
-_Esquema de herramientas principales_
+
+<style>
+  /* 1. Colorear el título de la Barra Lateral (J.avi Security) */
+  #sidebar .site-title {
+    background: linear-gradient(90deg, #b06ab3, #4568dc) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 700;
+    text-shadow: 0px 0px 20px rgba(69, 104, 220, 0.3);
+  }
+
+  /* 2. Colorear el Título Gigante de la Página (eCPPTv3) */
+  h1 {
+    background: linear-gradient(90deg, #00d1b2, #7d2ae8) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+
+  /* 3. (Opcional) Títulos de secciones H2 y enlaces */
+  h2, h3, .btn-outline-primary, .btn-outline-success {
+    /* Un toque sutil morado a los subtítulos */
+    color: #bfa3ff !important;
+  }
+</style>
