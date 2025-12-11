@@ -35,19 +35,6 @@ permalink: /blog/
 </div>
 
 <style>
-
-  /* 1. J.AVI SECURITY: Degradado Morado Oscuro -> Azul */
-
-  #sidebar .site-title {
-
-    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
-
-    -webkit-background-clip: text !important;
-
-    -webkit-text-fill-color: transparent !important;
-
-    font-weight: 700;
-
   /* --- 1. BARRA LATERAL --- */
   
   /* Título Principal */
