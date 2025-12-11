@@ -35,43 +35,87 @@ permalink: /blog/
 </div>
 
 <style>
-  /* 1. Título Lateral: DEGRADADO OFICIAL (#540ba3 -> #4568dc) */
+  /* --- 1. BARRA LATERAL (IZQUIERDA) --- */
+  
+  /* Título Principal (J.avi Security) */
   #sidebar .site-title {
     background: linear-gradient(90deg, #540ba3, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 700;
   }
+  
+  /* Subtítulo */
+  #sidebar .site-subtitle { color: #d4b3ff !important; }
 
-  /* 2. Subtítulo (Cybersecurity Analyst...) - Lila claro */
-  #sidebar .site-subtitle {
-    color: #d4b3ff !important;
-    font-weight: 500;
+  /* Enlaces del Menú (eJPT, About...) - Adiós Gris */
+  #sidebar .nav-link {
+    color: #a3b8ff !important; /* Azul hielo suave */
+  }
+  #sidebar .nav-link i {
+    color: #8eaafb !important; /* Iconos azulados */
   }
 
-  /* 3. Títulos de los artículos: Efecto Hover Nuevo */
-  .card-title a {
-    color: #e0e0e0 !important;
-    transition: all 0.3s;
+  /* Al pasar el ratón por los enlaces del menú */
+  #sidebar .nav-link:hover {
+    color: #d4b3ff !important; /* Se iluminan en lila */
   }
+  #sidebar .nav-link:hover i {
+    color: #540ba3 !important; /* Icono se pone morado oscuro */
+  }
+
+  /* Pie de página (Iconos sociales y Copyright) */
+  #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i, #sidebar .sidebar-bottom p {
+    color: #a3b8ff !important;
+  }
+  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover {
+    color: #540ba3 !important;
+  }
+
+
+  /* --- 2. CONTENIDO CENTRAL --- */
+
+  /* Títulos de Artículos */
+  .card-title a { color: #e0e0e0 !important; transition: all 0.3s; }
   .card-title a:hover {
-    /* Mismo degradado al pasar el ratón */
     background: linear-gradient(90deg, #540ba3, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
   }
 
-  /* 4. Pie de página (Iconos sociales y Copyright) - Adiós al gris */
-  #sidebar .sidebar-bottom a, 
-  #sidebar .sidebar-bottom i,
-  #sidebar .sidebar-bottom p {
-    color: #a3b8ff !important; /* Azul hielo */
-    transition: color 0.3s;
+  /* ELIMINAR LÍNEA NARANJA AL PASAR EL RATÓN */
+  a:hover {
+    text-decoration-color: #540ba3 !important; /* Subrayado morado */
+    border-bottom-color: #540ba3 !important; /* Borde inferior morado */
+  }
+
+
+  /* --- 3. PANEL DERECHO (TAGS Y RECIENTES) --- */
+
+  /* Títulos de secciones (Trending Tags, Recent Update) */
+  #panel-wrapper h3, #panel-wrapper .panel-heading {
+    color: #d4b3ff !important; /* Lila claro */
+  }
+
+  /* Enlaces de "Recently Updated" */
+  #panel-wrapper a {
+    color: #a3b8ff !important;
+  }
+  #panel-wrapper a:hover {
+    color: #540ba3 !important;
+  }
+
+  /* TAGS (Las pastillas grises) -> Ahora Moradas */
+  .post-tag {
+    background: rgba(84, 11, 163, 0.15) !important; /* Fondo morado transparente */
+    color: #d4b3ff !important; /* Texto lila */
+    border: 1px solid rgba(84, 11, 163, 0.3) !important; /* Borde fino morado */
   }
   
-  /* Al pasar el ratón por los iconos de abajo */
-  #sidebar .sidebar-bottom a:hover, 
-  #sidebar .sidebar-bottom i:hover {
-    color: #540ba3 !important; /* Tu morado nuevo */
+  /* Al pasar el ratón por un Tag */
+  .post-tag:hover {
+    background: linear-gradient(90deg, #540ba3, #4568dc) !important; /* Degradado Space */
+    color: white !important;
+    border: 1px solid transparent !important;
   }
 </style>
