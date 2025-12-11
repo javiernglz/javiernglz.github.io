@@ -35,24 +35,43 @@ permalink: /blog/
 </div>
 
 <style>
-  /* Nombre en la barra lateral */
+  /* 1. Título Lateral: DEGRADADO OFICIAL (#540ba3 -> #4568dc) */
   #sidebar .site-title {
-    background: linear-gradient(90deg, #b06ab3, #4568dc) !important;
+    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 700;
   }
 
-  /* Títulos de los artículos en la lista */
+  /* 2. Subtítulo (Cybersecurity Analyst...) - Lila claro */
+  #sidebar .site-subtitle {
+    color: #d4b3ff !important;
+    font-weight: 500;
+  }
+
+  /* 3. Títulos de los artículos: Efecto Hover Nuevo */
   .card-title a {
-    color: #e0e0e0 !important; /* Blanco suave por defecto */
+    color: #e0e0e0 !important;
     transition: all 0.3s;
   }
-  
-  /* Al pasar el ratón por un artículo, se pone degradado */
   .card-title a:hover {
-    background: linear-gradient(90deg, #b06ab3, #4568dc) !important;
+    /* Mismo degradado al pasar el ratón */
+    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
+  }
+
+  /* 4. Pie de página (Iconos sociales y Copyright) - Adiós al gris */
+  #sidebar .sidebar-bottom a, 
+  #sidebar .sidebar-bottom i,
+  #sidebar .sidebar-bottom p {
+    color: #a3b8ff !important; /* Azul hielo */
+    transition: color 0.3s;
+  }
+  
+  /* Al pasar el ratón por los iconos de abajo */
+  #sidebar .sidebar-bottom a:hover, 
+  #sidebar .sidebar-bottom i:hover {
+    color: #540ba3 !important; /* Tu morado nuevo */
   }
 </style>
