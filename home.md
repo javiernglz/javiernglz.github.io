@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: archives
 title: Blog
 permalink: /blog/
 ---
