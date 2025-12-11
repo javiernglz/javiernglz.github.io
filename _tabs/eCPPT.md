@@ -6,14 +6,26 @@ title: eCPPTv3
 permalink: /ecppt/
 ---
 
-## Preparación eCPPTv3
+## Documentación de Estudio
 
-Aquí encontrarás todos mis recursos, guías y lecciones aprendidas sobre 
-la certificación.
+Haz clic en un título para leer el artículo completo y acceder a las 
+descargas:
 
-### Artículos destacados
-{% assign category = site.categories.eCPPTv3 %}
-{% for post in category %}
-  - [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%d/%m/%Y" 
-}}
-{% endfor %}
+###  [1. Guía Estratégica: 5 Lecciones Clave para Aprobar]({% post_url 
+2025-12-11-eCPPTv3 %})
+Documento sobre la mentalidad, pivoting y estrategia que no viene en los 
+manuales técnicos.
+
+###  [2. Metodología Técnica de Pentesting y AD]({% post_url 
+2025-12-11-eCPPTv3 %})
+Mi "Cheat Sheet" personal: Guía paso a paso con los comandos exactos para 
+Enumeración, Active Directory y Pivoting.
+
+---
+
+## ️ Mindmap eCPPTv3
+Este es el esquema visual de todo lo que hay que entender para 
+presentarse al examen.
+
+![Mindmap eCPPTv3](/assets/slides/mindmap_ecppt.png){: .shadow .rounded }
+_Esquema de herramientas principales_
