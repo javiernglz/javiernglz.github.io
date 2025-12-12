@@ -6,148 +6,103 @@ title: eJPT
 permalink: /ejpt/
 ---
 
-<small>_Haz clic en un título para leer el artículo completo y acceder a las 
-descargas:_</small>
 La reconocida certificación eJPT evalúa la capacidad para enumerar redes desconocidas y pivotar manualmente mediante enrutamiento estático, además de dominar los fundamentos de Metasploit. Aquí te dejo mi "Cheat Sheet" o chuleta de referencia.
 
-Cheatsheet: Preparación eJPTv2 (Junior Penetration Tester)
+## Cheatsheet: Preparación eJPTv2 (Junior Penetration Tester)
 Este mapa mental cubre el ciclo de vida de una auditoría para la certificación eJPT, enfocado en Metodología, Routing y Metasploit.
 
-1. Networking & Routing
+### 1. Networking & Routing
 Objetivo: Entender dónde estás y alcanzar las redes ocultas. A diferencia de otros exámenes, aquí debes configurar tu enrutamiento manual.
 
-Identificación de Red:
+**Identificación de Red:**
+* `ip a` / `ifconfig`: Ver tu IP y máscara.
+* `ip route`: Ver la tabla de rutas actual.
 
-ip a / ifconfig: Ver tu IP y máscara.
+**Descubrimiento de Hosts (Ping Sweep):**
+* `fping -a -g 192.168.1.0/24 2>/dev/null`: Rápido y limpio.
+* `nmap -sn 192.168.1.0/24`: Estándar.
 
-ip route: Ver la tabla de rutas actual.
-
-Descubrimiento de Hosts (Ping Sweep):
-
-fping -a -g 192.168.1.0/24 2>/dev/null: Rápido y limpio.
-
-nmap -sn 192.168.1.0/24: Estándar.
-
-Agregar Rutas (Pivoting Básico):
-
+**Agregar Rutas (Pivoting Básico):**
 Escenario: Has comprometido una máquina con dos interfaces.
+* Linux: `ip route add 10.10.10.0/24 via <IP_GATEWAY_INTERNA>` (Comando clave).
+* Windows: `route add 10.10.10.0 mask 255.255.255.0 <IP_GATEWAY>`
 
-ip route add 10.10.10.0/24 via <IP_GATEWAY_INTERNA>: Comando clave en Linux.
-
-Windows: route add 10.10.10.0 mask 255.255.255.0 <IP_GATEWAY>
-
-2. Enumeración & Reconocimiento
+### 2. Enumeración & Reconocimiento
 Objetivo: Mapear puertos y servicios vulnerables.
 
-Nmap (Escaneo de Puertos):
+**Nmap (Escaneo de Puertos):**
+* `nmap -sC -sV -p- <IP>`: Scripts por defecto y versiones.
+* `nmap -sU <IP>`: No olvides el escaneo UDP (común en eJPT para SNMP).
 
-nmap -sC -sV -p- <IP>: Scripts por defecto y versiones.
+**Web Enumeration (HTTP/HTTPS):**
+* Nikto: `nikto -h <URL>` (Vieja escuela pero útil para fallos de config).
+* Dirbusting:
+  `gobuster dir -u <URL> -w /usr/share/wordlists/dirb/common.txt -x php,txt,html`
+* Inspección Manual: Ver código fuente (`Ctrl+U`), `robots.txt`.
 
-nmap -sU <IP>: No olvides el escaneo UDP (común en eJPT para SNMP).
-
-Web Enumeration (HTTP/HTTPS):
-
-Nikto: nikto -h <URL>. (Vieja escuela pero muy útil en eJPT para encontrar fallos rápidos de configuración).
-
-Dirbusting:
-
-gobuster dir -u <URL> -w /usr/share/wordlists/dirb/common.txt -x php,txt,html
-
-Inspección Manual: Ver código fuente (Ctrl+U), robots.txt.
-
-3. Web Attacks (Client-Side & Server-Side)
+### 3. Web Attacks (Client-Side & Server-Side)
 Objetivo: Explotar aplicaciones web mal configuradas o vulnerables.
 
-SQL Injection (SQLi):
+**SQL Injection (SQLi):**
+* Manual: Probar `' OR 1=1 -- -` en paneles de login.
+* SQLMap: `sqlmap -u "http://target.com/page.php?id=1" --dbs --batch` (Permitido y recomendado).
 
-Manual: Probar ' OR 1=1 -- - en paneles de login.
+**Cross-Site Scripting (XSS):**
+* Reflejado: ``<script>alert(1)</script>`` en inputs de búsqueda.
+* Robo de Cookies: `document.cookie`.
 
-SQLMap: sqlmap -u "http://target.com/page.php?id=1" --dbs --batch (Permitido y recomendado).
+**Brute Force Web:**
+* Hydra: 
+  `hydra -l admin -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/login.php:user=^USER^&pass=^PASS^:F=incorrect"`
 
-Cross-Site Scripting (XSS):
-
-Reflejado: <script>alert(1)</script> en inputs de búsqueda.
-
-Robo de Cookies (Concepto): document.cookie.
-
-Brute Force Web:
-
-Hydra: hydra -l admin -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/login.php:user=^USER^&pass=^PASS^:F=incorrect"
-
-4. System Attacks & Exploitation
+### 4. System Attacks & Exploitation
 Objetivo: Ganar acceso al sistema (Remote Code Execution).
 
-Búsqueda de Vulnerabilidades:
+**Búsqueda de Vulnerabilidades:**
+* `searchsploit "nombre servicio versión"`
+* Google Hacking: `"Apache 2.4.xx exploit github"`.
 
-searchsploit "nombre servicio versión"
+**Metasploit Framework (Tu mejor amigo en eJPT):**
+1. `search <servicio>`
+2. `use exploit/...`
+3. `set RHOSTS <IP>`
+4. `check`: Verificar si es vulnerable antes de atacar.
+5. `exploit`: Lanzar el ataque.
 
-Google Hacking: "Apache 2.4.xx exploit github".
+**Brute Force de Servicios:**
+* SSH: `hydra -L users.txt -P pass.txt ssh://<IP>`
+* RDP: `hydra -L users.txt -P pass.txt rdp://<IP>`
 
-Metasploit Framework (Tu mejor amigo en eJPT):
-
-search <servicio>
-
-use exploit/...
-
-set RHOSTS <IP>
-
-check: Verificar si es vulnerable antes de atacar.
-
-exploit: Lanzar el ataque.
-
-Brute Force de Servicios:
-
-SSH: hydra -L users.txt -P pass.txt ssh://<IP>
-
-RDP: hydra -L users.txt -P pass.txt rdp://<IP>
-
-5. Privilege Escalation
-
+### 5. Privilege Escalation
 Objetivo: Elevar privilegios a SYSTEM (Windows) o Root (Linux).
 
-Windows PrivEsc:
+**Windows PrivEsc:**
+* Meterpreter: `getsystem` (Intento automático).
+* Enumeración Manual:
+  * `whoami /priv` (Buscar SeImpersonate).
+  * `net user <usuario>` (Ver grupos).
+  * `systeminfo` (Ver versión del SO y parches para Kernel Exploits).
 
-Meterpreter: getsystem (Intento automático).
-
-Enumeración Manual:
-
-whoami /priv (Buscar SeImpersonate).
-
-net user <usuario> (Ver grupos).
-
-systeminfo (Ver versión del SO y parches para Kernel Exploits).
-
-Linux PrivEsc:
-
-Sudo: ´sudo -l´ (¿Qué puedo ejecutar como root sin contraseña?).
-
-SUID: ´find / -perm -u=s -type f 2>/dev/null´ (Buscar binarios con permisos especiales).
-
-Kernel: ´uname -a´ (Buscar "Dirty Cow" u otros exploits viejos si el kernel es antiguo).
+**Linux PrivEsc:**
+* Sudo: `sudo -l` (¿Qué puedo ejecutar como root sin contraseña?).
+* SUID: `find / -perm -u=s -type f 2>/dev/null` (Buscar binarios con permisos especiales).
+* Kernel: `uname -a` (Buscar "Dirty Cow" u otros exploits viejos).
 
 ### 6. Post-Exploitation
-
 En esta fase el objetivo es encontrar las "banderas", hashes o archivos finales.
 
-Búsqueda de Archivos (Linux):
+**Búsqueda de Archivos (Linux):**
+* `find / -name "flag.txt" 2>/dev/null`
+* `grep -r "password" /home/`
 
-´find / -name "flag.txt" 2>/dev/null´
+**Búsqueda de Archivos (Windows):**
+* `dir /s flag.txt`
+* `type C:\Users\Administrator\Desktop\flag.txt`
 
-´grep -r "password" /home/´
-
-Búsqueda de Archivos (Windows):
-
-´dir /s flag.txt´
-
-´type C:\Users\Administrator\Desktop\flag.txt´
-
-Cracking de Hashes:
-
-Si encuentras hashes en /etc/shadow` o bases de datos:
-
-John: `john --wordlist=rockyou.txt hash.txt`
-
-Hashcat: `hashcat -m <modo> -a 0 hash.txt rockyou.txt`
+**Cracking de Hashes:**
+Si encuentras hashes en `/etc/shadow` o bases de datos:
+* John: `john --wordlist=rockyou.txt hash.txt`
+* Hashcat: `hashcat -m <modo> -a 0 hash.txt rockyou.txt`
 
 ---
 
@@ -168,11 +123,10 @@ Hashcat: `hashcat -m <modo> -a 0 hash.txt rockyou.txt`
     -webkit-text-fill-color: transparent !important;
   }
 
-  /* 3. El botón activo de la izquierda (la pastilla que ahora es gris/verde) */
-  /* Lo ponemos morado oscuro con texto brillante */
+  /* 3. El botón activo de la izquierda */
   #sidebar .nav-item.active .nav-link {
-    background: rgba(125, 42, 232, 0.15) !important; /* Fondo lila transparente */
-    color: #bfa3ff !important; /* Texto lila claro */
+    background: rgba(125, 42, 232, 0.15) !important; 
+    color: #bfa3ff !important; 
     border: 1px solid rgba(125, 42, 232, 0.3) !important;
     box-shadow: 0 0 10px rgba(125, 42, 232, 0.2);
   }
@@ -182,15 +136,12 @@ Hashcat: `hashcat -m <modo> -a 0 hash.txt rockyou.txt`
     color: #4568dc !important;
   }
   
-  /* 5. Subtítulos y enlaces (para que no sean verdes) */
+  /* 5. Subtítulos y enlaces */
   h2, h3, a {
-    color: #a3b8ff; /* Azul hielo suave en lugar de verde */
+    color: #a3b8ff; 
   }
   a:hover {
-    color: #b06ab3; /* Morado al pasar el ratón */
+    color: #b06ab3; 
     text-decoration: none;
   }
 </style>
-
-  
-
