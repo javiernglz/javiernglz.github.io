@@ -4,7 +4,7 @@ layout: page
 
 icon: fas fa-user-ninja
 
-order: 6
+order: 5
 
 title: Red Team
 
