@@ -84,7 +84,7 @@ _Protección de la información._
   /* 2. Botón Activo del Menú */
   #sidebar .nav-item.active .nav-link {
     background: rgba(106, 17, 203, 0.15) !important;
-    color: #d4b3ff !important;
+    color: #ffffffff !important;
     border: 1px solid rgba(106, 17, 203, 0.3) !important;
   }
   #sidebar .nav-item.active .nav-link i { color: #4568dc !important; }
