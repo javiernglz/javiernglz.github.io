@@ -9,7 +9,7 @@ permalink: /ejpt/
 La reconocida certificación eJPT mide nuestra capacidad para enumerar redes desconocidas y pivotar manualmente mediante enrutamiento estático, además de dominar los fundamentos de Metasploit. Aquí te dejo mi "Cheat Sheet" o chuleta de referencia.
 
 ## Mi preparación para eJPTv2 (Junior Penetration Tester)
-Este esquema cubre el ciclo de vida de una auditoría para la certificación eJPT, lo he enfocado en la Metodología, Routing y Metasploit.
+Este esquema cubre el ciclo de vida de una auditoría para la certificación eJPT, lo he enfocado en la Metodología, Routing y Metasploit. Exactamente he dividido el examen en 6 fases o secciones, las cuales se muestran a continuación.
 
 ### 1. Networking & Routing
 El objetivo de la primera fase es entender dónde estás y alcanzar las redes ocultas. A diferencia de otros exámenes, aquí debes configurar tu enrutamiento manual.

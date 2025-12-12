@@ -2,7 +2,7 @@
 layout: page
 icon: fas fa-chalkboard-teacher
 order: 3
-title: Clases Ciber
+title: Docencia
 permalink: /clases/
 ---
 
