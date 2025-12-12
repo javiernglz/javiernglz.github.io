@@ -22,7 +22,7 @@ El objetivo de la primera fase es entender dónde estás y alcanzar las redes oc
 * `fping -a -g 192.168.1.0/24 2>/dev/null`
 * `nmap -sn 192.168.1.0/24`: Lo estándar.
 
-**Agregar Rutas (Pivoting Básico)**
+**Agregar Rutas (Pivoting Básico)**<br>
 Estamos en el escenario en el que hemos comprometido una máquina con dos interfaces.
 * Linux: `ip route add 10.10.10.0/24 via <IP_GATEWAY_INTERNA>`
 * Windows: `route add 10.10.10.0 mask 255.255.255.0 <IP_GATEWAY>`
@@ -99,7 +99,7 @@ En esta fase el objetivo es encontrar las "banderas", hashes o archivos finales.
 * `dir /s flag.txt`
 * `type C:\Users\Administrator\Desktop\flag.txt`
 
-**Cracking de Hashes**
+**Cracking de Hashes**<br>
 Si encuentras hashes en `/etc/shadow` o bases de datos:
 * John: `john --wordlist=rockyou.txt hash.txt`
 * Hashcat: `hashcat -m <modo> -a 0 hash.txt rockyou.txt`
