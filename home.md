@@ -6,29 +6,29 @@ permalink: /blog/
 
 <div id="post-list">
 {% for post in site.posts %}
-  <article class="post-item">
-    <a href="{{ post.url | relative_url }}" class="post-preview">
-      
-      <h1 class="card-title">{{ post.title }}</h1>
+  <article class="card-wrapper card">
+    <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+      <div class="col-md-12">
+        <div class="card-body d-flex flex-column">
+          <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
 
-      <div class="card-text content">
-        <p>
-          {{ post.excerpt | strip_html | truncatewords: 25 }}
-        </p>
-      </div>
+          <div class="card-text content mt-0 mb-3">
+            <p>
+              {{ post.excerpt | strip_html | truncatewords: 25 }}
+            </p>
+          </div>
 
-      <div class="post-meta">
-        <div class="meta-item">
-          <i class="far fa-calendar fa-fw me-1"></i>
-          {{ post.date | date: "%d/%m/%Y" }}
+          <div class="post-meta flex-grow-1 d-flex align-items-end">
+            <div class="me-auto">
+              <i class="far fa-calendar fa-fw me-1"></i>
+              {{ post.date | date: "%d/%m/%Y" }}
+              
+              <i class="far fa-folder-open fa-fw me-1 ms-2"></i>
+              {{ post.categories | join: ', ' }}
+            </div>
+          </div>
         </div>
-        
-        <div class="meta-item">
-          <i class="far fa-folder-open fa-fw me-1"></i>
-          {{ post.categories | join: ', ' }}
-        </div>
       </div>
-
     </a>
   </article>
 {% endfor %}
@@ -36,142 +36,88 @@ permalink: /blog/
 
 <style>
   /* --- 1. BARRA LATERAL --- */
+  
+  /* Título Principal */
   #sidebar .site-title {
-    background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
+    background: linear-gradient(90deg, #540ba3, #4568dc) !important; /* Un poco más claro para leerse mejor */
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-    font-weight: 800;
+    font-weight: 700;
   }
   
+  /* Subtítulo */
   #sidebar .site-subtitle { color: #828282 !important; }
 
+  /* Enlaces (About, eJPT...) - Estado Normal */
   #sidebar .nav-link {
-    color: #a3b8ff !important;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+    color: #a3b8ff !important; /* Azul hielo suave */
+    transition: all 0.3s;
   }
   #sidebar .nav-link i { color: #8eaafb !important; }
 
+  /* AL PASAR EL RATÓN (SOLUCIÓN DE LEGIBILIDAD) */
   #sidebar .nav-link:hover {
-    color: #ffffff !important;
-    background: rgba(84, 11, 163, 0.4) !important; 
-    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4);
+    color: #ffffff !important; /* TEXTO BLANCO (Se lee perfecto) */
+    background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* Resplandor */
   }
-  #sidebar .nav-link:hover i { color: #ffffff !important; }
+  
+  #sidebar .nav-link:hover i {
+    color: #ffffff !important; /* Icono Blanco */
+  }
 
+  /* Iconos de abajo */
   #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #a3b8ff !important; }
-  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
+  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #d4b3ff !important; }
 
 
-  /* --- 2. ARTÍCULOS CENTRALES --- */
+  /* --- 2. ARTÍCULOS --- */
 
-  .post-item {
-    margin-bottom: 20px;
-    border: none !important;
-    background: transparent !important;
-    padding: 0 !important;
-  }
+  /* Títulos Normales */
+  .card-title a { color: #e0e0e0 !important; }
 
-  /* LA TARJETA PRINCIPAL */
-  .post-preview {
-    display: flex;             
-    flex-direction: column;    
-    justify-content: center;
-    
-    /* --- AQUÍ ESTÁ EL AJUSTE DE POSICIÓN --- */
-    margin-left: -40px !important;       /* <--- JUEGA CON ESTE NÚMERO (Muévelo a la izquierda) */
-    width: calc(100% + 1px) !important; /* <--- Esto ensancha la caja para que no quede corta a la derecha */
-    box-sizing: border-box !important;
-    
-    background: rgba(25, 25, 35, 0.6) !important; 
-    border: 1px solid rgba(84, 11, 163, 0.1) !important;
-    border-radius: 15px !important; 
-    padding: 20px 25px !important; 
-    
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    backdrop-filter: blur(5px); 
-    -webkit-backdrop-filter: blur(5px);
+  /* Títulos al pasar el ratón (Usamos un lila muy claro para que se lea) */
+  .card-title a:hover {
+    color: #d4b3ff !important; /* Lila claro brillante */
+    text-shadow: 0 0 10px rgba(106, 17, 203, 0.6); /* Sombra morada */
     text-decoration: none !important;
   }
 
-  /* EFECTO HOVER */
-  .post-preview:hover {
-    background: rgba(84, 11, 163, 0.25) !important; 
-    border: 1px solid rgba(132, 0, 255, 0.5) !important; 
-    box-shadow: 0 0 25px rgba(84, 11, 163, 0.35) !important; 
-    transform: translateY(-4px); 
-    z-index: 10;
+  /* Arreglar el subrayado naranja de otros enlaces */
+  a:hover {
+    text-decoration-color: #9d50bb !important;
   }
 
-  /* --- TIPOGRAFÍA --- */
-  .card-title { 
-    color: #e0e0e0 !important; 
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    margin-top: 0 !important;
-    transition: color 0.3s;
-  }
-  .post-preview:hover .card-title { 
-    color: #ffffff !important; 
-    text-shadow: 0 0 10px rgba(132,0,255,0.4); 
-  }
 
-  .card-text p { 
-    color: #a0a0a0 !important; 
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-    line-height: 1.5;
-  }
-  .post-preview:hover .card-text p { color: #dcdcdc !important; }
-
-  .post-meta {
-    color: #828282 !important;
-    font-size: 0.85rem;
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 15px; 
-    align-items: center;
-  }
+  /* --- 3. PANEL DERECHO (TAGS) --- */
   
-  .meta-item { display: flex; align-items: center; }
-
-  .post-preview:hover .post-meta { color: #d4b3ff !important; }
-  .post-preview:hover .post-meta i { color: #d4b3ff !important; }
-
-
-  /* --- 3. PANEL DERECHO & TAGS --- */
+  /* Títulos de secciones */
   #panel-wrapper h3, #panel-wrapper .panel-heading { color: #828282 !important; }
   
-  #panel-wrapper li a { 
-    color: #a3b8ff !important; 
-    padding: 5px 8px;
-    border-radius: 6px;
-    display: block;
-    transition: all 0.2s;
-  }
+  /* Enlaces recientes */
+  #panel-wrapper a { color: #a3b8ff !important; }
+  #panel-wrapper a:hover { color: #ffffff !important; text-decoration: underline decoration-purple; }
+
+  /* TAGS (Pastillas) */
+.post-tag {
+  background: rgba(84, 11, 163, 0.2) !important;
+  color: #d4b3ff !important; /* Texto claro */
+  border: 1px solid rgba(84, 11, 163, 0.4) !important;
+  /* Incluimos un poco de radio base si no lo tiene ya, para que el hover se vea mejor */
+  border-radius: 5px; 
+}
+.post-tag:hover {
+  background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente (similar al nav-link hover) */
+  color: #ffffff !important; /* Texto blanco (similar al nav-link hover) */
+  border-color: #540ba3 !important; /* Mantenemos el color del borde si quieres que destaque, o lo ponemos a transparente */
   
-  #panel-wrapper li a:hover { 
-    color: #ffffff !important; 
-    background: rgba(84, 11, 163, 0.3);
-    text-decoration: none !important;
-  }
+  /* ESTILO AÑADIDO PARA EL EFECTO RESPLANDOR */
+  border-radius: 10px; /* Borde más redondeado (similar al nav-link hover) */
+  box-shadow: 0 0 15px rgba(84, 11, 163, 0.6); /* Resplandor más visible, ajustado un poco */
+  
+  /* Opcional: Para una transición más suave, podrías añadir esto al .post-tag base */
+  /* transition: all 0.3s ease; */
+}
 
-  .post-tag {
-    background: transparent !important; 
-    color: #a3b8ff !important;
-    border: 1px solid rgba(84, 11, 163, 0.3) !important;
-    border-radius: 50px !important; 
-    padding: 6px 14px !important;
-    font-size: 0.85rem !important;
-    transition: all 0.3s ease;
-  }
-
-  .post-tag:hover {
-    background: rgba(84, 11, 163, 0.5) !important; 
-    color: #ffffff !important;
-    border-color: rgba(132, 0, 255, 0.6) !important; 
-    box-shadow: 0 0 15px rgba(84, 11, 163, 0.5) !important; 
-    transform: scale(1.05); 
-  }
 </style>
