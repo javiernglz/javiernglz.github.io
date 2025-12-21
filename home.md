@@ -35,89 +35,87 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 1. BARRA LATERAL --- */
+  /* --- 1. TARJETAS DE LOS ARTÍCULOS (EL CAMBIO SUTIL) --- */
   
-  /* Título Principal */
-  #sidebar .site-title {
-    background: linear-gradient(90deg, #540ba3, #4568dc) !important; /* Un poco más claro para leerse mejor */
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    font-weight: 700;
+  #post-list .card {
+    /* Fondo Morado Oscuro Profundo (Casi negro, pero con tono) */
+    background-color: #161625 !important; 
+    
+    /* Borde del mismo color para que sea sutil de primeras */
+    border: 1px solid #161625 !important;
+    
+    /* Un poco de redondeo para modernizar */
+    border-radius: 12px !important;
+    
+    /* Sombra suave para que no quede plano del todo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* ESTADO HOVER (AL PASAR EL RATÓN) */
+  #post-list .card:hover {
+    /* El fondo se queda igual o cambia mínimamente */
+    background-color: #1a1a2e !important; 
+    
+    /* LO ÚNICO QUE DESTACA: El borde brilla en tu morado */
+    border: 1px solid #6a11cb !important;
+    
+    /* Un resplandor muy suave */
+    box-shadow: 0 0 15px rgba(106, 17, 203, 0.2) !important;
+  }
+
+  /* --- 2. TEXTOS (PARA QUE SE LEAN SOBRE FONDO OSCURO) --- */
+  
+  .card-title {
+    color: #e0e0e0 !important; /* Blanco roto */
   }
   
-  /* Subtítulo */
+  .card-text p {
+    color: #a0a0a0 !important; /* Gris medio */
+  }
+  
+  .post-meta {
+    color: #707090 !important; /* Azul grisáceo apagado */
+  }
+  
+  /* Al pasar el ratón, los textos se iluminan un poco */
+  #post-list .card:hover .card-title { color: #ffffff !important; }
+  #post-list .card:hover .post-meta { color: #a3b8ff !important; }
+
+
+  /* --- 3. BARRA LATERAL (TU ESTILO QUE YA FUNCIONABA) --- */
+  
+  #sidebar .site-title {
+    background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 800;
+  }
+  
   #sidebar .site-subtitle { color: #828282 !important; }
 
-  /* Enlaces (About, eJPT...) - Estado Normal */
   #sidebar .nav-link {
-    color: #a3b8ff !important; /* Azul hielo suave */
-    transition: all 0.3s;
+    color: #a3b8ff !important;
+    border-radius: 10px;
+    transition: all 0.3s ease;
   }
   #sidebar .nav-link i { color: #8eaafb !important; }
 
-  /* AL PASAR EL RATÓN (SOLUCIÓN DE LEGIBILIDAD) */
   #sidebar .nav-link:hover {
-    color: #ffffff !important; /* TEXTO BLANCO (Se lee perfecto) */
-    background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente */
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* Resplandor */
+    color: #ffffff !important;
+    background: rgba(84, 11, 163, 0.4) !important; 
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4);
   }
+  #sidebar .nav-link:hover i { color: #ffffff !important; }
   
-  #sidebar .nav-link:hover i {
-    color: #ffffff !important; /* Icono Blanco */
+  /* Tags del panel derecho */
+  .post-tag {
+    background: rgba(84, 11, 163, 0.1) !important;
+    border: 1px solid rgba(84, 11, 163, 0.3) !important;
+    color: #a3b8ff !important;
+    border-radius: 50px !important;
   }
-
-  /* Iconos de abajo */
-  #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #a3b8ff !important; }
-  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #d4b3ff !important; }
-
-
-  /* --- 2. ARTÍCULOS --- */
-
-  /* Títulos Normales */
-  .card-title a { color: #e0e0e0 !important; }
-
-  /* Títulos al pasar el ratón (Usamos un lila muy claro para que se lea) */
-  .card-title a:hover {
-    color: #d4b3ff !important; /* Lila claro brillante */
-    text-shadow: 0 0 10px rgba(106, 17, 203, 0.6); /* Sombra morada */
-    text-decoration: none !important;
+  .post-tag:hover {
+    background: rgba(84, 11, 163, 0.4) !important;
+    color: #fff !important;
   }
-
-  /* Arreglar el subrayado naranja de otros enlaces */
-  a:hover {
-    text-decoration-color: #9d50bb !important;
-  }
-
-
-  /* --- 3. PANEL DERECHO (TAGS) --- */
-  
-  /* Títulos de secciones */
-  #panel-wrapper h3, #panel-wrapper .panel-heading { color: #828282 !important; }
-  
-  /* Enlaces recientes */
-  #panel-wrapper a { color: #a3b8ff !important; }
-  #panel-wrapper a:hover { color: #ffffff !important; text-decoration: underline decoration-purple; }
-
-  /* TAGS (Pastillas) */
-.post-tag {
-  background: rgba(84, 11, 163, 0.2) !important;
-  color: #d4b3ff !important; /* Texto claro */
-  border: 1px solid rgba(84, 11, 163, 0.4) !important;
-  /* Incluimos un poco de radio base si no lo tiene ya, para que el hover se vea mejor */
-  border-radius: 5px; 
-}
-.post-tag:hover {
-  background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente (similar al nav-link hover) */
-  color: #ffffff !important; /* Texto blanco (similar al nav-link hover) */
-  border-color: #540ba3 !important; /* Mantenemos el color del borde si quieres que destaque, o lo ponemos a transparente */
-  
-  /* ESTILO AÑADIDO PARA EL EFECTO RESPLANDOR */
-  border-radius: 10px; /* Borde más redondeado (similar al nav-link hover) */
-  box-shadow: 0 0 15px rgba(84, 11, 163, 0.6); /* Resplandor más visible, ajustado un poco */
-  
-  /* Opcional: Para una transición más suave, podrías añadir esto al .post-tag base */
-  /* transition: all 0.3s ease; */
-}
-
 </style>
