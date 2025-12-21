@@ -39,10 +39,10 @@ permalink: /blog/
   
   /* Título Principal */
   #sidebar .site-title {
-    background: linear-gradient(90deg, #540ba3, #4568dc) !important; /* Un poco más claro para leerse mejor */
+    background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-    font-weight: 700;
+    font-weight: 800;
   }
   
   /* Subtítulo */
@@ -69,7 +69,7 @@ permalink: /blog/
 
   /* Iconos de abajo */
   #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #a3b8ff !important; }
-  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #d4b3ff !important; }
+  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
 
 
   /* --- 2. ARTÍCULOS --- */
