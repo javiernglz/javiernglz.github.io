@@ -37,7 +37,6 @@ permalink: /blog/
 <style>
   /* --- 1. BARRA LATERAL --- */
   
-  /* Título Principal */
   #sidebar .site-title {
     background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
@@ -45,79 +44,104 @@ permalink: /blog/
     font-weight: 800;
   }
   
-  /* Subtítulo */
   #sidebar .site-subtitle { color: #828282 !important; }
 
-  /* Enlaces (About, eJPT...) - Estado Normal */
   #sidebar .nav-link {
-    color: #a3b8ff !important; /* Azul hielo suave */
-    transition: all 0.3s;
+    color: #a3b8ff !important;
+    transition: all 0.3s ease;
   }
   #sidebar .nav-link i { color: #8eaafb !important; }
 
-  /* AL PASAR EL RATÓN (SOLUCIÓN DE LEGIBILIDAD) */
+  /* ESTE ES EL EFECTO QUE QUEREMOS COPIAR */
   #sidebar .nav-link:hover {
-    color: #ffffff !important; /* TEXTO BLANCO (Se lee perfecto) */
+    color: #ffffff !important;
     background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente */
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* Resplandor */
   }
   
-  #sidebar .nav-link:hover i {
-    color: #ffffff !important; /* Icono Blanco */
-  }
+  #sidebar .nav-link:hover i { color: #ffffff !important; }
 
-  /* Iconos de abajo */
   #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #a3b8ff !important; }
   #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
 
 
-  /* --- 2. ARTÍCULOS --- */
+  /* --- 2. ARTÍCULOS CENTRALES (MODIFICADO) --- */
 
-  /* Títulos Normales */
-  .card-title a { color: #e0e0e0 !important; }
+  /* Aplicamos el efecto a TODA la tarjeta del post, no solo al título */
+  .post-preview {
+    border-radius: 10px; /* Preparamos las esquinas */
+    padding: 10px;       /* Un poco de aire para que el fondo no pegue al texto */
+    margin: -10px;       /* Compensamos el padding para no descolocar la lista */
+    transition: all 0.3s ease; /* Transición suave igual que el sidebar */
+  }
 
-  /* Títulos al pasar el ratón (Usamos un lila muy claro para que se lea) */
-  .card-title a:hover {
-    color: #d4b3ff !important; /* Lila claro brillante */
-    text-shadow: 0 0 10px rgba(106, 17, 203, 0.6); /* Sombra morada */
+  /* AL PASAR EL RATÓN POR EL ARTÍCULO */
+  .post-preview:hover {
+    background: rgba(84, 11, 163, 0.4) !important; /* EL MISMO FONDO */
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4);    /* EL MISMO BRILLO */
     text-decoration: none !important;
   }
 
-  /* Arreglar el subrayado naranja de otros enlaces */
-  a:hover {
-    text-decoration-color: #9d50bb !important;
+  /* Qué pasa con los textos de dentro al hacer hover */
+  .post-preview:hover .card-title { 
+    color: #ffffff !important; /* Título blanco */
+    text-shadow: none !important; /* Quitamos sombras raras */
+  }
+  
+  .post-preview:hover .card-text p {
+    color: #e0e0e0 !important; /* Resumen en gris claro */
+  }
+  
+  .post-preview:hover .post-meta, 
+  .post-preview:hover .post-meta i {
+    color: #d4b3ff !important; /* Iconos y fecha en lila claro */
   }
 
+  /* Título normal (sin hover) */
+  .card-title { color: #e0e0e0 !important; transition: color 0.3s; }
 
-  /* --- 3. PANEL DERECHO (TAGS) --- */
+
+  /* --- 3. PANEL DERECHO & TAGS (MODIFICADO) --- */
   
-  /* Títulos de secciones */
   #panel-wrapper h3, #panel-wrapper .panel-heading { color: #828282 !important; }
   
-  /* Enlaces recientes */
-  #panel-wrapper a { color: #a3b8ff !important; }
-  #panel-wrapper a:hover { color: #ffffff !important; text-decoration: underline decoration-purple; }
+  /* Enlaces de "Updated Recent" */
+  #panel-wrapper li a { 
+    color: #a3b8ff !important; 
+    transition: all 0.3s;
+    display: block; /* Para que pille padding */
+    padding: 2px 5px;
+    border-radius: 5px;
+  }
+  
+  /* Efecto mini-glow para los enlaces de texto de la derecha */
+  #panel-wrapper li a:hover { 
+    color: #ffffff !important; 
+    text-decoration: none !important;
+    background: rgba(84, 11, 163, 0.2); /* Un fondo más sutil para listas */
+    text-shadow: 0 0 5px rgba(132, 0, 255, 0.5);
+  }
 
-  /* TAGS (Pastillas) */
-.post-tag {
-  background: rgba(84, 11, 163, 0.2) !important;
-  color: #d4b3ff !important; /* Texto claro */
-  border: 1px solid rgba(84, 11, 163, 0.4) !important;
-  /* Incluimos un poco de radio base si no lo tiene ya, para que el hover se vea mejor */
-  border-radius: 5px; 
-}
-.post-tag:hover {
-  background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente (similar al nav-link hover) */
-  color: #ffffff !important; /* Texto blanco (similar al nav-link hover) */
-  border-color: #540ba3 !important; /* Mantenemos el color del borde si quieres que destaque, o lo ponemos a transparente */
-  
-  /* ESTILO AÑADIDO PARA EL EFECTO RESPLANDOR */
-  border-radius: 10px; /* Borde más redondeado (similar al nav-link hover) */
-  box-shadow: 0 0 15px rgba(84, 11, 163, 0.6); /* Resplandor más visible, ajustado un poco */
-  
-  /* Opcional: Para una transición más suave, podrías añadir esto al .post-tag base */
-  /* transition: all 0.3s ease; */
-}
+  /* TAGS (LAS PASTILLAS) */
+  .post-tag {
+    background: rgba(84, 11, 163, 0.15) !important; /* Un poco más oscuro en reposo */
+    color: #d4b3ff !important;
+    border: 1px solid rgba(84, 11, 163, 0.3) !important; /* Borde sutil en reposo */
+    border-radius: 10px; /* Redondeado igual que el sidebar */
+    transition: all 0.3s ease;
+  }
+
+  /* TAGS HOVER - AQUÍ ESTABA EL FALLO */
+  .post-tag:hover {
+    background: rgba(84, 11, 163, 0.4) !important; /* MISMO FONDO QUE SIDEBAR */
+    color: #ffffff !important;
+    
+    /* TRUCO: Quitamos el borde (o lo ponemos del mismo color que el fondo) 
+       para eliminar el efecto "caja" y que parezca luz pura */
+    border-color: rgba(84, 11, 163, 0.4) !important; 
+    
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* MISMO GLOW QUE SIDEBAR */
+  }
 
 </style>
