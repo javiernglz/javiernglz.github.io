@@ -6,7 +6,7 @@ permalink: /blog/
 
 <div id="post-list">
 {% for post in site.posts %}
-  <article class="card-wrapper card">
+  <article class="post-item">
     <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
       <div class="col-md-12">
         <div class="card-body d-flex flex-column">
@@ -35,34 +35,7 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 0. RESET NUCLEAR DEFINITIVO (VISIBILIDAD) --- */
-  
-  /* 1. Hacemos INVISIBLE todo el contenedor padre (la tarjeta original) */
-  #post-list .card, 
-  #post-list .card-wrapper {
-    visibility: hidden !important; /* Desaparece visualmente */
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    margin-bottom: 20px !important; /* Mantenemos el hueco vertical */
-  }
-
-  /* 2. Hacemos VISIBLE de nuevo solo a nuestro enlace (el hijo neón) */
-  .post-preview {
-    visibility: visible !important; /* Vuelve a aparecer */
-    display: block !important;
-    width: 100% !important; /* Asegura que ocupe todo el ancho */
-  }
-  
-  /* 3. Eliminamos cualquier pseudo-elemento rebelde */
-  #post-list .card::before, #post-list .card::after,
-  .card-wrapper::before, .card-wrapper::after {
-    display: none !important;
-    content: none !important;
-  }
-
   /* --- 1. BARRA LATERAL (TU REFERENCIA) --- */
-  
   #sidebar .site-title {
     background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
@@ -79,7 +52,6 @@ permalink: /blog/
   }
   #sidebar .nav-link i { color: #8eaafb !important; }
 
-  /* Hover Neón del Sidebar */
   #sidebar .nav-link:hover {
     color: #ffffff !important;
     background: rgba(84, 11, 163, 0.4) !important; 
@@ -91,34 +63,39 @@ permalink: /blog/
   #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
 
 
-  /* --- 2. ARTÍCULOS CENTRALES (EL ESTILO CRISTAL) --- */
+  /* --- 2. ARTÍCULOS CENTRALES (DISEÑO NEÓN LIMPIO) --- */
   
+  /* Contenedor neutro para separar artículos */
+  .post-item {
+    margin-bottom: 25px;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* LA TARJETA REAL (El enlace) */
   .post-preview {
-    /* Fondo base oscuro y translúcido */
+    display: block; /* Ocupa todo el ancho */
     background: rgba(25, 25, 35, 0.6) !important; 
     border: 1px solid rgba(84, 11, 163, 0.1) !important;
     border-radius: 15px !important; 
-    
     padding: 20px !important;
-    /* Quitamos el margin negativo que quizás causaba el desplazamiento */
-    margin: 0 !important; 
-    
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     backdrop-filter: blur(5px); 
     -webkit-backdrop-filter: blur(5px);
+    text-decoration: none !important; /* Quita subrayados raros */
   }
 
-  /* HOVER: EFECTO ACTIVADO */
+  /* EFECTO HOVER */
   .post-preview:hover {
     background: rgba(84, 11, 163, 0.25) !important; 
     border: 1px solid rgba(132, 0, 255, 0.5) !important; 
     box-shadow: 0 0 25px rgba(84, 11, 163, 0.35) !important; 
-    transform: translateY(-5px); /* Salto hacia arriba */
-    text-decoration: none !important;
+    transform: translateY(-5px); 
     z-index: 10;
   }
 
-  /* Ajuste de textos dentro de la tarjeta */
+  /* Textos */
   .post-preview:hover .card-title { color: #ffffff !important; text-shadow: 0 0 10px rgba(132,0,255,0.4); }
   .post-preview:hover .card-text p { color: #e0e0e0 !important; }
   .post-preview:hover .post-meta { color: #d4b3ff !important; }
@@ -132,7 +109,6 @@ permalink: /blog/
 
 
   /* --- 3. PANEL DERECHO & TAGS --- */
-  
   #panel-wrapper h3, #panel-wrapper .panel-heading { color: #828282 !important; }
   
   #panel-wrapper li a { 
@@ -149,7 +125,6 @@ permalink: /blog/
     text-decoration: none !important;
   }
 
-  /* TAGS Redondos */
   .post-tag {
     background: transparent !important; 
     color: #a3b8ff !important;
@@ -167,5 +142,4 @@ permalink: /blog/
     box-shadow: 0 0 15px rgba(84, 11, 163, 0.5) !important; 
     transform: scale(1.05); 
   }
-
 </style>
