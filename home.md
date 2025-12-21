@@ -35,32 +35,22 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 0. RESET NUCLEAR REFORZADO (ADIÓS FANTASMAS) --- */
-  /* Eliminamos TODO rastro del contenedor padre original */
+  /* --- 0. RESET NUCLEAR (ELIMINAR EL FANTASMA) --- */
+  /* Atacamos todas las clases posibles del tema para hacerlas invisibles */
   
-  #post-list .card, 
-  #post-list .card-body,
-  .card-wrapper {
+  #post-list article,
+  #post-list .card,
+  #post-list .card-wrapper,
+  #post-list .card-body {
     background-color: transparent !important;
     background: none !important;
     border: none !important;
     box-shadow: none !important;
-    margin: 0 !important; /* Reseteamos margen para que no empuje */
-  }
-
-  /* IMPORTANTE: Eliminamos capas ocultas (pseudo-elementos) que crean sombras raras */
-  #post-list .card::before, #post-list .card::after,
-  .card-wrapper::before, .card-wrapper::after {
-    display: none !important;
-    content: none !important;
-    box-shadow: none !important;
   }
   
-  /* Aseguramos que el hover original no se active */
-  .card-wrapper:hover {
-    box-shadow: none !important;
-    transform: none !important;
-    background: none !important;
+  /* Esto elimina los pseudo-elementos que a veces crean sombras en Chirpy */
+  #post-list .card::before, #post-list .card::after {
+    display: none !important;
   }
 
   /* --- 1. BARRA LATERAL (TU REFERENCIA) --- */
@@ -93,33 +83,36 @@ permalink: /blog/
   #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
 
 
-  /* --- 2. ARTÍCULOS CENTRALES (EL ESTILO DEFINITIVO) --- */
+  /* --- 2. ARTÍCULOS CENTRALES (EL ESTILO CRISTAL) --- */
   
-  /* Estilo base */
   .post-preview {
-    background: rgba(30, 30, 40, 0.6) !important; /* Un poco más oscuro para tapar cualquier cosa detrás */
+    /* Fondo base oscuro y translúcido */
+    background: rgba(25, 25, 35, 0.6) !important; 
     border: 1px solid rgba(84, 11, 163, 0.1) !important;
     border-radius: 15px !important; 
-    padding: 20px !important;
-    margin-bottom: 20px !important; 
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     
-    /* TRUCO: Backdrop filter para efecto cristal moderno */
+    padding: 20px !important;
+    margin-bottom: 25px !important; /* Separación vertical */
+    
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     backdrop-filter: blur(5px); 
     -webkit-backdrop-filter: blur(5px);
+    
+    /* Importante: para que ocupe el espacio correcto */
+    display: block; 
   }
 
-  /* HOVER NEÓN */
+  /* HOVER: EFECTO ACTIVADO */
   .post-preview:hover {
     background: rgba(84, 11, 163, 0.25) !important; 
     border: 1px solid rgba(132, 0, 255, 0.5) !important; 
     box-shadow: 0 0 25px rgba(84, 11, 163, 0.35) !important; 
-    transform: translateY(-4px) scale(1.01); 
-    z-index: 99; 
+    transform: translateY(-5px); /* Salto hacia arriba */
     text-decoration: none !important;
+    z-index: 10;
   }
 
-  /* Ajuste de textos */
+  /* Ajuste de textos dentro de la tarjeta */
   .post-preview:hover .card-title { color: #ffffff !important; text-shadow: 0 0 10px rgba(132,0,255,0.4); }
   .post-preview:hover .card-text p { color: #e0e0e0 !important; }
   .post-preview:hover .post-meta { color: #d4b3ff !important; }
