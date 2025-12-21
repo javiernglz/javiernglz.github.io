@@ -35,92 +35,75 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 0. RESET NUCLEAR DE COLORES (ESTO MATA LOS COLORES DEL TEMA) --- */
+  /* --- 1. FONDO Y BORDES (MODO NUCLEAR) --- */
+  /* Usamos "html body" delante para ganar la guerra de especificidad */
   
-  /* Forzamos que CUALQUIER tarjeta, tenga la categoría que tenga, sea oscura */
-  #post-list .card, 
-  #post-list .card-wrapper {
+  html body #post-list .card, 
+  html body #post-list .card-wrapper {
+    /* Fondo oscuro exacto */
     background-color: #161625 !important;
     background: #161625 !important;
     
-    /* Matamos los bordes de colores específicos de categoría */
+    /* Matamos los colores de categoría (naranja/azul) forzando el borde oscuro */
     border: 1px solid #161625 !important;
-    border-top: 1px solid #161625 !important;
-    border-bottom: 1px solid #161625 !important;
-    border-left: 1px solid #161625 !important;
-    border-right: 1px solid #161625 !important;
+    border-color: #161625 !important;
     
-    border-radius: 12px !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
+    /* Quitamos cualquier sombra de color rara */
+    box-shadow: none !important;
+    
+    /* Forma */
+    border-radius: 15px !important;
   }
 
-  /* --- 1. HOVER ÚNICO (SOLO MORADO) --- */
+  /* --- 2. HOVER (EL EFECTO NEÓN) --- */
   
-  #post-list .card:hover,
-  #post-list .card-wrapper:hover {
-    background-color: #1a1a2e !important; 
+  html body #post-list .card:hover,
+  html body #post-list .card-wrapper:hover {
+    /* Fondo un pelín más claro al pasar el ratón */
+    background-color: #1a1a2e !important;
     
-    /* Aquí forzamos el borde morado en los 4 lados */
-    border: 1px solid #6a11cb !important; 
+    /* AQUÍ ESTÁ EL BORDÉ MORADO ÚNICO */
+    border: 1px solid #6a11cb !important;
     border-color: #6a11cb !important;
     
-    box-shadow: 0 0 20px rgba(106, 17, 203, 0.3) !important;
-    transform: translateY(-2px); /* Un pequeño movimiento para que se sienta vivo */
+    /* Resplandor morado */
+    box-shadow: 0 0 20px rgba(106, 17, 203, 0.4) !important;
+    
+    /* Movimiento */
+    transform: translateY(-3px) !important;
+    z-index: 99 !important;
   }
 
-  /* --- 2. TEXTOS Y METADATA --- */
+  /* --- 3. TEXTOS (PARA QUE SE LEAN SIEMPRE) --- */
   
-  .card-title { color: #e0e0e0 !important; }
-  .card-text p { color: #a0a0a0 !important; }
-  
-  /* Forzamos el color de los iconos y texto de abajo, que a veces heredan el color de categoría */
-  .post-meta, 
-  .post-meta i,
-  .post-meta span {
-    color: #707090 !important; 
+  html body .card-title {
+    color: #e0e0e0 !important;
   }
   
-  /* Al pasar el ratón */
-  #post-list .card:hover .card-title { color: #ffffff !important; }
-  #post-list .card:hover .post-meta,
-  #post-list .card:hover .post-meta i { 
-    color: #d4b3ff !important; 
-  }
-
-
-  /* --- 3. BARRA LATERAL (INTOCABLE) --- */
-  #sidebar .site-title {
-    background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    font-weight: 800;
+  html body .card-text p {
+    color: #a0a0a0 !important;
   }
   
-  #sidebar .site-subtitle { color: #828282 !important; }
+  html body .post-meta {
+    color: #757590 !important;
+  }
+  
+  html body .post-meta i {
+    color: #757590 !important;
+  }
 
-  #sidebar .nav-link {
-    color: #a3b8ff !important;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-  }
-  #sidebar .nav-link i { color: #8eaafb !important; }
+  /* Textos al hacer Hover */
+  html body #post-list .card:hover .card-title { color: #ffffff !important; }
+  html body #post-list .card:hover .post-meta { color: #d4b3ff !important; }
+  html body #post-list .card:hover .post-meta i { color: #d4b3ff !important; }
 
-  #sidebar .nav-link:hover {
-    color: #ffffff !important;
-    background: rgba(84, 11, 163, 0.4) !important; 
-    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4);
+  /* --- 4. EXTRAS PARA LIMPIAR RASTROS --- */
+  
+  /* A veces Chirpy pone una línea de color a la izquierda. Esto la borra. */
+  html body #post-list .card::before, 
+  html body #post-list .card::after {
+    display: none !important;
+    background: none !important;
   }
-  #sidebar .nav-link:hover i { color: #ffffff !important; }
-
-  /* Tags */
-  .post-tag {
-    background: rgba(84, 11, 163, 0.1) !important;
-    border: 1px solid rgba(84, 11, 163, 0.3) !important;
-    color: #a3b8ff !important;
-    border-radius: 50px !important;
-  }
-  .post-tag:hover {
-    background: rgba(84, 11, 163, 0.4) !important;
-    color: #fff !important;
-  }
+  
 </style>
