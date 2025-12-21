@@ -61,29 +61,35 @@ permalink: /blog/
   #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
 
 
-  /* --- 2. ARTÍCULOS CENTRALES (LIMPIEZA TOTAL) --- */
+  /* --- 2. ARTÍCULOS CENTRALES (FIX DE ALINEACIÓN) --- */
   
-  /* Contenedor invisible para separar los bloques */
+  /* Contenedor del artículo */
   .post-item {
     margin-bottom: 20px;
     border: none !important;
     background: transparent !important;
+    
+    /* --- EL FIX DE ALINEACIÓN --- */
+    /* Esto simula el comportamiento de "row" para pegar el contenido a los bordes */
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+    width: calc(100% + 20px) !important;
   }
 
-  /* LA TARJETA NEÓN (El enlace completo) */
+  /* LA TARJETA NEÓN */
   .post-preview {
-    display: flex;             /* Usamos flex para ordenar verticalmente */
-    flex-direction: column;    /* Elementos uno debajo de otro */
+    display: flex;             
+    flex-direction: column;    
     justify-content: center;
     
-    width: 100%;               /* Ocupa todo el ancho disponible */
-    box-sizing: border-box;    /* Asegura que el padding no rompa el ancho */
+    width: 100%;               
+    box-sizing: border-box;    
     
-    /* ESTILO VISUAL (Igual que el Sidebar) */
+    /* ESTILO VISUAL */
     background: rgba(25, 25, 35, 0.6) !important; 
     border: 1px solid rgba(84, 11, 163, 0.1) !important;
     border-radius: 15px !important; 
-    padding: 20px 25px !important; /* Espacio interior cómodo */
+    padding: 20px 25px !important; 
     
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     backdrop-filter: blur(5px); 
@@ -100,7 +106,7 @@ permalink: /blog/
     z-index: 10;
   }
 
-  /* --- TIPOGRAFÍA Y COLORES INTERNOS --- */
+  /* --- TIPOGRAFÍA --- */
 
   /* Título */
   .card-title { 
@@ -108,6 +114,7 @@ permalink: /blog/
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 10px;
+    margin-top: 0 !important; /* Asegura que no tenga margen superior extra */
     transition: color 0.3s;
   }
   .post-preview:hover .card-title { 
@@ -124,7 +131,7 @@ permalink: /blog/
   }
   .post-preview:hover .card-text p { color: #dcdcdc !important; }
 
-  /* Metadata (Fecha y tags) */
+  /* Metadata */
   .post-meta {
     color: #828282 !important;
     font-size: 0.85rem;
