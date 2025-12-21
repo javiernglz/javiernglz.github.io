@@ -51,7 +51,7 @@ presentarse al examen.
     font-style: italic !important;
     
     position: relative !important;
-    top: -40px !important;  /* <--- CAMBIAR ESTE NÚMERO. Si pones -60px subirá mucho más. */
+    top: -20px !important;  /* <--- CAMBIAR ESTE NÚMERO. -60px subirá mucho más. */
     
     /* Reseteamos el margen para que no estorbe */
     margin-top: 0px !important;
