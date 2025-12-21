@@ -35,19 +35,7 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 0. CORRECCIÓN DE ALINEACIÓN (CRÍTICO) --- */
-  
-  /* Esto elimina el desplazamiento a la derecha forzando al contenedor a pegar al borde */
-  #post-list {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* --- 1. BARRA LATERAL (REFERENCIA) --- */
+  /* --- 1. BARRA LATERAL --- */
   #sidebar .site-title {
     background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
@@ -75,26 +63,25 @@ permalink: /blog/
   #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
 
 
-  /* --- 2. ARTÍCULOS CENTRALES (ESTILO NEÓN FINAL) --- */
-  
+  /* --- 2. ARTÍCULOS CENTRALES --- */
+
   .post-item {
-    display: block;
-    width: 100% !important; /* Ocupa todo el ancho */
-    margin: 0 0 20px 0 !important; /* Solo margen abajo */
-    padding: 0 !important;
+    margin-bottom: 20px;
     border: none !important;
     background: transparent !important;
-    list-style: none !important; /* Por si el tema lo trata como lista */
+    padding: 0 !important;
   }
 
-  /* LA TARJETA VISIBLE */
+  /* LA TARJETA PRINCIPAL */
   .post-preview {
     display: flex;             
     flex-direction: column;    
     justify-content: center;
     
-    width: 100% !important;    /* Asegura el ancho completo */
-    box-sizing: border-box !important; /* Evita que el padding rompa el ancho */
+    /* --- AQUÍ ESTÁ EL AJUSTE DE POSICIÓN --- */
+    margin-left: -20px !important;       /* <--- JUEGA CON ESTE NÚMERO (Muévelo a la izquierda) */
+    width: calc(100% + 40px) !important; /* <--- Esto ensancha la caja para que no quede corta a la derecha */
+    box-sizing: border-box !important;
     
     background: rgba(25, 25, 35, 0.6) !important; 
     border: 1px solid rgba(84, 11, 163, 0.1) !important;
@@ -117,8 +104,6 @@ permalink: /blog/
   }
 
   /* --- TIPOGRAFÍA --- */
-
-  /* Título */
   .card-title { 
     color: #e0e0e0 !important; 
     font-size: 1.5rem;
@@ -132,7 +117,6 @@ permalink: /blog/
     text-shadow: 0 0 10px rgba(132,0,255,0.4); 
   }
 
-  /* Texto Resumen */
   .card-text p { 
     color: #a0a0a0 !important; 
     font-size: 0.95rem;
@@ -141,20 +125,16 @@ permalink: /blog/
   }
   .post-preview:hover .card-text p { color: #dcdcdc !important; }
 
-  /* Metadata */
   .post-meta {
     color: #828282 !important;
     font-size: 0.85rem;
     display: flex;
-    flex-wrap: wrap; /* Para móviles */
-    gap: 15px; /* Espacio entre fecha y categorías */
+    flex-wrap: wrap; 
+    gap: 15px; 
     align-items: center;
   }
   
-  .meta-item {
-    display: flex;
-    align-items: center;
-  }
+  .meta-item { display: flex; align-items: center; }
 
   .post-preview:hover .post-meta { color: #d4b3ff !important; }
   .post-preview:hover .post-meta i { color: #d4b3ff !important; }
