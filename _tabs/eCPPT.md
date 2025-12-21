@@ -7,6 +7,7 @@ permalink: /ecppt/
 ---
 <h1 class="subtitulo-pegado">Certified Professional Penetration Tester</h1>
 
+
 <small>_Haz clic en un título para leer el artículo completo y acceder a las 
 descargas:_</small>
 
@@ -51,7 +52,7 @@ presentarse al examen.
     font-style: italic !important;
     
     position: relative !important;
-    top: -20px !important;  /* <--- CAMBIAR ESTE NÚMERO. -60px subirá mucho más. */
+    top: -25px !important;  /* <--- CAMBIAR ESTE NÚMERO. -60px subirá mucho más. */
     
     /* Reseteamos el margen para que no estorbe */
     margin-top: 0px !important;

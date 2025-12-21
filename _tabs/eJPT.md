@@ -5,10 +5,11 @@ order: 1
 title: eJPT
 permalink: /ejpt/
 ---
-# Junior Penetration Tester
+<h1 class="subtitulo-pegado">Junior Penetration Tester</h1>
+
 La reconocida certificación eJPT mide nuestra capacidad para enumerar redes desconocidas y pivotar manualmente mediante enrutamiento estático, además de dominar los fundamentos de Metasploit. Aquí te dejo mi "Cheat Sheet" o chuleta de referencia.
 
-## Mi preparación para eJPTv2 (Junior Penetration Tester)
+## Mi preparación para eJPTv2
 Este esquema cubre el ciclo de vida de una auditoría para la certificación eJPT, lo he enfocado en la Metodología, Routing y Metasploit. Exactamente he dividido el examen en 6 fases o secciones, las cuales se muestran a continuación.
 
 ### 1. Networking & Routing
@@ -115,14 +116,26 @@ Si encuentras hashes en `/etc/shadow` o bases de datos:
     font-weight: 800;
     width: fit-content;
     display: inline-block;
+    
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+    line-height: 1 !important; 
     text-shadow: 0px 0px 30px rgba(69, 104, 220, 0.2);
   }
-
-  /* 2. Tu nombre en la Barra Lateral (J.avi Security) */
-  #sidebar .site-title {
-    background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
+  
+  /* 2. ESTILO ESPECÍFICO PARA EL SUBTÍTULO */
+  .subtitulo-pegado {
+    /* Estética */
+    font-size: 1.5em;
+    font-weight: 500 !important;
+    font-style: italic !important;
+    
+    position: relative !important;
+    top: -25px !important;  /* <--- CAMBIAR ESTE NÚMERO. -60px subirá mucho más. */
+    
+    /* Reseteamos el margen para que no estorbe */
+    margin-top: 0px !important;
+    display: block !important; /* Asegura que ocupe su propia línea */
   }
 
   /* 3. El botón activo de la izquierda */
