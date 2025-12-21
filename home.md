@@ -7,28 +7,26 @@ permalink: /blog/
 <div id="post-list">
 {% for post in site.posts %}
   <article class="post-item">
-    <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
-      <div class="col-md-12">
-        <div class="card-body d-flex flex-column">
-          <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
+    <a href="{{ post.url | relative_url }}" class="post-preview">
+      
+      <h1 class="card-title">{{ post.title }}</h1>
 
-          <div class="card-text content mt-0 mb-3">
-            <p>
-              {{ post.excerpt | strip_html | truncatewords: 25 }}
-            </p>
-          </div>
-
-          <div class="post-meta flex-grow-1 d-flex align-items-end">
-            <div class="me-auto">
-              <i class="far fa-calendar fa-fw me-1"></i>
-              {{ post.date | date: "%d/%m/%Y" }}
-              
-              <i class="far fa-folder-open fa-fw me-1 ms-2"></i>
-              {{ post.categories | join: ', ' }}
-            </div>
-          </div>
-        </div>
+      <div class="card-text content">
+        <p>
+          {{ post.excerpt | strip_html | truncatewords: 25 }}
+        </p>
       </div>
+
+      <div class="post-meta">
+        <i class="far fa-calendar fa-fw me-1"></i>
+        {{ post.date | date: "%d/%m/%Y" }}
+        
+        <span class="ms-2">
+          <i class="far fa-folder-open fa-fw me-1"></i>
+          {{ post.categories | join: ', ' }}
+        </span>
+      </div>
+
     </a>
   </article>
 {% endfor %}
@@ -63,27 +61,34 @@ permalink: /blog/
   #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
 
 
-  /* --- 2. ARTÍCULOS CENTRALES (DISEÑO NEÓN LIMPIO) --- */
+  /* --- 2. ARTÍCULOS CENTRALES (LIMPIEZA TOTAL) --- */
   
-  /* Contenedor neutro para separar artículos */
+  /* Contenedor invisible para separar los bloques */
   .post-item {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     border: none !important;
     background: transparent !important;
-    box-shadow: none !important;
   }
 
-  /* LA TARJETA REAL (El enlace) */
+  /* LA TARJETA NEÓN (El enlace completo) */
   .post-preview {
-    display: block; /* Ocupa todo el ancho */
+    display: flex;             /* Usamos flex para ordenar verticalmente */
+    flex-direction: column;    /* Elementos uno debajo de otro */
+    justify-content: center;
+    
+    width: 100%;               /* Ocupa todo el ancho disponible */
+    box-sizing: border-box;    /* Asegura que el padding no rompa el ancho */
+    
+    /* ESTILO VISUAL (Igual que el Sidebar) */
     background: rgba(25, 25, 35, 0.6) !important; 
     border: 1px solid rgba(84, 11, 163, 0.1) !important;
     border-radius: 15px !important; 
-    padding: 20px !important;
+    padding: 20px 25px !important; /* Espacio interior cómodo */
+    
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     backdrop-filter: blur(5px); 
     -webkit-backdrop-filter: blur(5px);
-    text-decoration: none !important; /* Quita subrayados raros */
+    text-decoration: none !important;
   }
 
   /* EFECTO HOVER */
@@ -91,21 +96,43 @@ permalink: /blog/
     background: rgba(84, 11, 163, 0.25) !important; 
     border: 1px solid rgba(132, 0, 255, 0.5) !important; 
     box-shadow: 0 0 25px rgba(84, 11, 163, 0.35) !important; 
-    transform: translateY(-5px); 
+    transform: translateY(-4px); 
     z-index: 10;
   }
 
-  /* Textos */
-  .post-preview:hover .card-title { color: #ffffff !important; text-shadow: 0 0 10px rgba(132,0,255,0.4); }
-  .post-preview:hover .card-text p { color: #e0e0e0 !important; }
-  .post-preview:hover .post-meta { color: #d4b3ff !important; }
-  .post-preview:hover i { color: #d4b3ff !important; }
+  /* --- TIPOGRAFÍA Y COLORES INTERNOS --- */
 
+  /* Título */
   .card-title { 
     color: #e0e0e0 !important; 
+    font-size: 1.5rem;
     font-weight: 700;
+    margin-bottom: 10px;
     transition: color 0.3s;
   }
+  .post-preview:hover .card-title { 
+    color: #ffffff !important; 
+    text-shadow: 0 0 10px rgba(132,0,255,0.4); 
+  }
+
+  /* Texto Resumen */
+  .card-text p { 
+    color: #a0a0a0 !important; 
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  .post-preview:hover .card-text p { color: #dcdcdc !important; }
+
+  /* Metadata (Fecha y tags) */
+  .post-meta {
+    color: #828282 !important;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+  }
+  .post-preview:hover .post-meta { color: #d4b3ff !important; }
+  .post-preview:hover .post-meta i { color: #d4b3ff !important; }
 
 
   /* --- 3. PANEL DERECHO & TAGS --- */
