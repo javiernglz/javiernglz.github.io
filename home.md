@@ -80,7 +80,7 @@ permalink: /blog/
     
     /* --- AQUÍ ESTÁ EL AJUSTE DE POSICIÓN --- */
     margin-left: -40px !important;       /* <--- JUEGA CON ESTE NÚMERO (Muévelo a la izquierda) */
-    width: calc(100% + 40px) !important; /* <--- Esto ensancha la caja para que no quede corta a la derecha */
+    width: calc(100% + 1px) !important; /* <--- Esto ensancha la caja para que no quede corta a la derecha */
     box-sizing: border-box !important;
     
     background: rgba(25, 25, 35, 0.6) !important; 
