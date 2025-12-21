@@ -19,6 +19,8 @@ permalink: /blueteam/
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 800;
+    width: fit-content;
+    display: inline-block;
     text-shadow: 0px 0px 30px rgba(69, 104, 220, 0.2);
   }
 
