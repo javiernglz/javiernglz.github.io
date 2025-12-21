@@ -36,6 +36,11 @@ presentarse al examen.
     font-weight: 800;
     width: fit-content;
     display: inline-block;
+    display: inline-block; /* Importante para que no ocupe toda la línea */
+    
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+    line-height: 1 !important; /* Mantenemos la línea compacta */
     text-shadow: 0px 0px 30px rgba(69, 104, 220, 0.2);
   }
   
