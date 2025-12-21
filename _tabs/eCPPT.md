@@ -5,7 +5,8 @@ order: 2
 title: eCPPT
 permalink: /ecppt/
 ---
-# Certified Professional Penetration Tester
+# Certified Professional Penetration Tester {: .subtitulo-pegado }
+
 <small>_Haz clic en un título para leer el artículo completo y acceder a las 
 descargas:_</small>
 
@@ -37,15 +38,23 @@ presentarse al examen.
     display: inline-block;
     text-shadow: 0px 0px 30px rgba(69, 104, 220, 0.2);
   }
+  
+  /* 2. ESTILO ESPECÍFICO PARA EL SUBTÍTULO */
+  .subtitulo-pegado {
+    margin-top: -25px !important;  /* Lo sube para pegarlo al anterior */
+    padding-top: 0 !important;
+    font-size: 1.8em; 
+    font-style: italic !important; /* <--- ESTO AÑADE LA CURSIVA */
+  }
 
-  /* 2. Tu nombre en la Barra Lateral (J.avi Security) */
+  /* 3. Tu nombre en la Barra Lateral (J.avi Security) */
   #sidebar .site-title {
     background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
   }
 
-  /* 3. El botón activo de la izquierda (la pastilla que ahora es gris/verde) */
+  /* 4. El botón activo de la izquierda (la pastilla que ahora es gris/verde) */
   /* Lo ponemos morado oscuro con texto brillante */
   #sidebar .nav-item.active .nav-link {
     background: rgba(125, 42, 232, 0.15) !important; /* Fondo lila transparente */
@@ -54,12 +63,12 @@ presentarse al examen.
     box-shadow: 0 0 10px rgba(125, 42, 232, 0.2);
   }
 
-  /* 4. Icono del escudo en la barra lateral */
+  /* 5. Icono del escudo en la barra lateral */
   #sidebar .nav-item.active .nav-link i {
     color: #4568dc !important; /* Icono azul eléctrico */
   }
   
-  /* 5. Subtítulos y enlaces (para que no sean verdes) */
+  /* 6. Subtítulos y enlaces (para que no sean verdes) */
   h2, h3, a {
     color: #a3b8ff; /* Azul hielo suave en lugar de verde */
   }
