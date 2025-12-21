@@ -35,7 +35,18 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 1. BARRA LATERAL (INTOCABLE - ES TU REFERENCIA) --- */
+  /* --- 0. RESET NUCLEAR (ESTO SOLUCIONA LA MEZCLA DE TEMAS) --- */
+  /* Borramos los estilos por defecto de Chirpy/Bootstrap que ensucian el diseño */
+  
+  #post-list .card, 
+  #post-list .card-body {
+    background-color: transparent !important; /* Quita el fondo gris/blanco feo */
+    border: none !important;                 /* Quita el borde aburrido */
+    box-shadow: none !important;             /* Quita la sombra por defecto */
+  }
+
+  /* --- 1. BARRA LATERAL (TU REFERENCIA) --- */
+  
   #sidebar .site-title {
     background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
@@ -47,12 +58,12 @@ permalink: /blog/
 
   #sidebar .nav-link {
     color: #a3b8ff !important;
+    border-radius: 10px;
     transition: all 0.3s ease;
-    border-radius: 10px; /* Aseguramos la forma base */
   }
   #sidebar .nav-link i { color: #8eaafb !important; }
 
-  /* EL EFECTO QUE TE GUSTA */
+  /* Hover Neón del Sidebar */
   #sidebar .nav-link:hover {
     color: #ffffff !important;
     background: rgba(84, 11, 163, 0.4) !important; 
@@ -64,79 +75,78 @@ permalink: /blog/
   #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
 
 
-  /* --- 2. ARTÍCULOS CENTRALES (EL ARREGLO IMPORTANTE) --- */
+  /* --- 2. ARTÍCULOS CENTRALES (EL ARREGLO VISUAL) --- */
   
+  /* Ahora aplicamos el estilo al enlace contenedor (.post-preview) */
   .post-preview {
-    /* Forma base más suave */
+    background: rgba(30, 30, 40, 0.4) !important; /* Un fondo base muy sutil y oscuro para que no flote en la nada */
+    border: 1px solid rgba(84, 11, 163, 0.1) !important; /* Borde casi invisible */
     border-radius: 15px !important; 
-    padding: 15px !important;
-    margin: -15px !important; /* Compensar el padding para que no se mueva */
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animación fluida */
-    border: 1px solid transparent; /* Para que el borde no salte al aparecer */
+    padding: 20px !important;
+    margin-bottom: 20px !important; /* Separación entre artículos */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
-  /* HOVER DEL ARTÍCULO: Estilo "Cristal Tecnológico" */
+  /* EL EFECTO HOVER NEÓN LIMPIO */
   .post-preview:hover {
-    /* 1. Fondo más sutil que en el sidebar para no saturar, pero visible */
-    background: rgba(84, 11, 163, 0.15) !important; 
-    
-    /* 2. Borde brillante para definir la forma (esto da el toque pro) */
-    border: 1px solid rgba(132, 0, 255, 0.5) !important;
-    
-    /* 3. El mismo resplandor que el sidebar */
-    box-shadow: 0 0 20px rgba(84, 11, 163, 0.3) !important;
-    
-    /* 4. Movemos la tarjeta un pelín hacia la derecha para dar dinamismo */
-    transform: translateX(5px);
+    background: rgba(84, 11, 163, 0.25) !important; /* Fondo morado translúcido */
+    border: 1px solid rgba(132, 0, 255, 0.5) !important; /* Borde brillante */
+    box-shadow: 0 0 25px rgba(84, 11, 163, 0.35) !important; /* Resplandor */
+    transform: translateY(-3px) scale(1.01); /* Pequeño "salto" hacia el usuario */
+    z-index: 10; /* Asegura que brille por encima de todo */
     text-decoration: none !important;
   }
 
-  /* Textos dentro del artículo al hacer hover */
-  .post-preview:hover .card-title { color: #ffffff !important; } /* Título blanco puro */
-  .post-preview:hover .card-text p { color: #dcdcdc !important; } /* Texto casi blanco */
-  .post-preview:hover .post-meta { color: #d4b3ff !important; } /* Metadata lila */
-  .post-preview:hover i { color: #d4b3ff !important; } /* Iconos lila */
+  /* Ajuste de colores de texto al hacer hover */
+  .post-preview:hover .card-title { color: #ffffff !important; text-shadow: 0 0 10px rgba(132,0,255,0.4); }
+  .post-preview:hover .card-text p { color: #e0e0e0 !important; }
+  .post-preview:hover .post-meta { color: #d4b3ff !important; }
+  .post-preview:hover i { color: #d4b3ff !important; }
 
-  .card-title { color: #e0e0e0 !important; transition: color 0.3s; }
+  /* Títulos en estado normal */
+  .card-title { 
+    color: #e0e0e0 !important; 
+    font-weight: 700;
+  }
 
 
-  /* --- 3. PANEL DERECHO & TAGS (AHORA IDENTICOS AL SIDEBAR) --- */
+  /* --- 3. PANEL DERECHO & TAGS (UNIFICACIÓN) --- */
   
   #panel-wrapper h3, #panel-wrapper .panel-heading { color: #828282 !important; }
   
   /* Enlaces de "Updated Recent" */
   #panel-wrapper li a { 
     color: #a3b8ff !important; 
+    padding: 5px 8px;
+    border-radius: 6px;
+    display: block;
     transition: all 0.2s;
-    display: block; 
-    padding: 5px 10px; /* Les damos cuerpo */
-    border-radius: 8px; /* Redondeados */
   }
   
   #panel-wrapper li a:hover { 
     color: #ffffff !important; 
-    background: rgba(84, 11, 163, 0.3); /* Fondo coherente */
+    background: rgba(84, 11, 163, 0.3);
     text-decoration: none !important;
-    box-shadow: 0 0 10px rgba(84, 11, 163, 0.2);
   }
 
-  /* TAGS - Las pastillas */
+  /* TAGS - Las pastillas redondas */
   .post-tag {
-    background: transparent !important;
+    background: transparent !important; /* Sin fondo en reposo */
     color: #a3b8ff !important;
     border: 1px solid rgba(84, 11, 163, 0.3) !important;
-    border-radius: 20px !important; /* MUY REDONDOS (Pill shape) */
-    padding: 5px 12px;
+    border-radius: 50px !important; /* SÚPER REDONDO */
+    padding: 6px 14px !important;
+    font-size: 0.85rem !important;
     transition: all 0.3s ease;
   }
 
   /* TAGS HOVER - COPIA EXACTA DEL SIDEBAR */
   .post-tag:hover {
-    background: rgba(84, 11, 163, 0.5) !important; /* Fondo intenso */
+    background: rgba(84, 11, 163, 0.5) !important; 
     color: #ffffff !important;
-    border-color: transparent !important; /* El borde desaparece, queda la luz */
-    box-shadow: 0 0 15px rgba(84, 11, 163, 0.6) !important; /* Glow fuerte */
-    transform: scale(1.05); /* Pequeño pop para que se sienta táctil */
+    border-color: rgba(132, 0, 255, 0.6) !important; 
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.5) !important; 
+    transform: scale(1.05); 
   }
 
 </style>
