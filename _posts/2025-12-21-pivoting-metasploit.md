@@ -4,9 +4,6 @@ title: "Pivoting con Metasploit en Linux (Guía Visual)"
 date: 2025-12-21
 categories: [Red Team]
 tags: [metasploit, pivoting, linux, eCPPTv3, lateral movement]
-image:
-  path: /assets/img/pivoting-metasploit-linux.jpg
-  alt: Infografía de Pivoting con Metasploit
 ---
 
 El **Pivoting** (o movimiento lateral) es una técnica crucial en el pentesting que nos permite utilizar un sistema comprometido para atacar otros sistemas en la misma red que no son accesibles directamente.
