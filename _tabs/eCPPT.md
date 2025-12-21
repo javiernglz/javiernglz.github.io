@@ -36,21 +36,26 @@ presentarse al examen.
     font-weight: 800;
     width: fit-content;
     display: inline-block;
-    display: inline-block; /* Importante para que no ocupe toda la línea */
     
     margin-bottom: 0px !important;
     padding-bottom: 0px !important;
-    line-height: 1 !important; /* Mantenemos la línea compacta */
+    line-height: 1 !important; 
     text-shadow: 0px 0px 30px rgba(69, 104, 220, 0.2);
   }
   
   /* 2. ESTILO ESPECÍFICO PARA EL SUBTÍTULO */
   .subtitulo-pegado {
-    margin-top: -55px !important;  /* Lo sube para pegarlo al anterior */
-    padding-top: 0 !important;
+    /* Estética */
     font-size: 1.5em;
     font-weight: 500 !important;
-    font-style: italic !important; /* <--- ESTO AÑADE LA CURSIVA */
+    font-style: italic !important;
+    
+    position: relative !important;
+    top: -40px !important;  /* <--- CAMBIAR ESTE NÚMERO. Si pones -60px subirá mucho más. */
+    
+    /* Reseteamos el margen para que no estorbe */
+    margin-top: 0px !important;
+    display: block !important; /* Asegura que ocupe su propia línea */
   }
 
   /* 3. Tu nombre en la Barra Lateral (J.avi Security) */
