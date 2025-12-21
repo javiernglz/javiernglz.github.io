@@ -18,13 +18,15 @@ permalink: /blog/
       </div>
 
       <div class="post-meta">
-        <i class="far fa-calendar fa-fw me-1"></i>
-        {{ post.date | date: "%d/%m/%Y" }}
+        <div class="meta-item">
+          <i class="far fa-calendar fa-fw me-1"></i>
+          {{ post.date | date: "%d/%m/%Y" }}
+        </div>
         
-        <span class="ms-2">
+        <div class="meta-item">
           <i class="far fa-folder-open fa-fw me-1"></i>
           {{ post.categories | join: ', ' }}
-        </span>
+        </div>
       </div>
 
     </a>
@@ -33,7 +35,19 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 1. BARRA LATERAL (TU REFERENCIA) --- */
+  /* --- 0. CORRECCIÓN DE ALINEACIÓN (CRÍTICO) --- */
+  
+  /* Esto elimina el desplazamiento a la derecha forzando al contenedor a pegar al borde */
+  #post-list {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 1. BARRA LATERAL (REFERENCIA) --- */
   #sidebar .site-title {
     background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
@@ -61,31 +75,27 @@ permalink: /blog/
   #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
 
 
-  /* --- 2. ARTÍCULOS CENTRALES (FIX DE ALINEACIÓN) --- */
+  /* --- 2. ARTÍCULOS CENTRALES (ESTILO NEÓN FINAL) --- */
   
-  /* Contenedor del artículo */
   .post-item {
-    margin-bottom: 20px;
+    display: block;
+    width: 100% !important; /* Ocupa todo el ancho */
+    margin: 0 0 20px 0 !important; /* Solo margen abajo */
+    padding: 0 !important;
     border: none !important;
     background: transparent !important;
-    
-    /* --- EL FIX DE ALINEACIÓN --- */
-    /* Esto simula el comportamiento de "row" para pegar el contenido a los bordes */
-    margin-left: -10px !important;
-    margin-right: -10px !important;
-    width: calc(100% + 20px) !important;
+    list-style: none !important; /* Por si el tema lo trata como lista */
   }
 
-  /* LA TARJETA NEÓN */
+  /* LA TARJETA VISIBLE */
   .post-preview {
     display: flex;             
     flex-direction: column;    
     justify-content: center;
     
-    width: 100%;               
-    box-sizing: border-box;    
+    width: 100% !important;    /* Asegura el ancho completo */
+    box-sizing: border-box !important; /* Evita que el padding rompa el ancho */
     
-    /* ESTILO VISUAL */
     background: rgba(25, 25, 35, 0.6) !important; 
     border: 1px solid rgba(84, 11, 163, 0.1) !important;
     border-radius: 15px !important; 
@@ -114,7 +124,7 @@ permalink: /blog/
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 10px;
-    margin-top: 0 !important; /* Asegura que no tenga margen superior extra */
+    margin-top: 0 !important;
     transition: color 0.3s;
   }
   .post-preview:hover .card-title { 
@@ -136,8 +146,16 @@ permalink: /blog/
     color: #828282 !important;
     font-size: 0.85rem;
     display: flex;
+    flex-wrap: wrap; /* Para móviles */
+    gap: 15px; /* Espacio entre fecha y categorías */
     align-items: center;
   }
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
+  }
+
   .post-preview:hover .post-meta { color: #d4b3ff !important; }
   .post-preview:hover .post-meta i { color: #d4b3ff !important; }
 
