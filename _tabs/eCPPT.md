@@ -41,9 +41,10 @@ presentarse al examen.
   
   /* 2. ESTILO ESPECÍFICO PARA EL SUBTÍTULO */
   .subtitulo-pegado {
-    margin-top: -25px !important;  /* Lo sube para pegarlo al anterior */
+    margin-top: -35px !important;  /* Lo sube para pegarlo al anterior */
     padding-top: 0 !important;
-    font-size: 1.8em; 
+    font-size: 1.5em;
+    font-weight: 500 !important;
     font-style: italic !important; /* <--- ESTO AÑADE LA CURSIVA */
   }
 
