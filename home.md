@@ -35,22 +35,30 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 0. RESET NUCLEAR (ELIMINAR EL FANTASMA) --- */
-  /* Atacamos todas las clases posibles del tema para hacerlas invisibles */
+  /* --- 0. RESET NUCLEAR DEFINITIVO (VISIBILIDAD) --- */
   
-  #post-list article,
-  #post-list .card,
-  #post-list .card-wrapper,
-  #post-list .card-body {
-    background-color: transparent !important;
-    background: none !important;
+  /* 1. Hacemos INVISIBLE todo el contenedor padre (la tarjeta original) */
+  #post-list .card, 
+  #post-list .card-wrapper {
+    visibility: hidden !important; /* Desaparece visualmente */
+    background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+    margin-bottom: 20px !important; /* Mantenemos el hueco vertical */
+  }
+
+  /* 2. Hacemos VISIBLE de nuevo solo a nuestro enlace (el hijo neón) */
+  .post-preview {
+    visibility: visible !important; /* Vuelve a aparecer */
+    display: block !important;
+    width: 100% !important; /* Asegura que ocupe todo el ancho */
   }
   
-  /* Esto elimina los pseudo-elementos que a veces crean sombras en Chirpy */
-  #post-list .card::before, #post-list .card::after {
+  /* 3. Eliminamos cualquier pseudo-elemento rebelde */
+  #post-list .card::before, #post-list .card::after,
+  .card-wrapper::before, .card-wrapper::after {
     display: none !important;
+    content: none !important;
   }
 
   /* --- 1. BARRA LATERAL (TU REFERENCIA) --- */
@@ -92,14 +100,12 @@ permalink: /blog/
     border-radius: 15px !important; 
     
     padding: 20px !important;
-    margin-bottom: 25px !important; /* Separación vertical */
+    /* Quitamos el margin negativo que quizás causaba el desplazamiento */
+    margin: 0 !important; 
     
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     backdrop-filter: blur(5px); 
     -webkit-backdrop-filter: blur(5px);
-    
-    /* Importante: para que ocupe el espacio correcto */
-    display: block; 
   }
 
   /* HOVER: EFECTO ACTIVADO */
