@@ -35,66 +35,60 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 1. FORZADO DE TARJETAS (SOBREESCRIBIR TEMA) --- */
+  /* --- 0. RESET NUCLEAR DE COLORES (ESTO MATA LOS COLORES DEL TEMA) --- */
   
-  /* Atacamos tanto a .card como a .card-wrapper para que no escape nada */
+  /* Forzamos que CUALQUIER tarjeta, tenga la categoría que tenga, sea oscura */
   #post-list .card, 
   #post-list .card-wrapper {
-    /* FONDO: Morado muy oscuro (Casi negro) */
     background-color: #161625 !important;
     background: #161625 !important;
     
-    /* BORDE INICIAL: Del mismo color que el fondo (Invisible/Sutil) */
-    /* El !important aquí anula el color naranja/azul de las categorías */
+    /* Matamos los bordes de colores específicos de categoría */
     border: 1px solid #161625 !important;
-    border-color: #161625 !important;
+    border-top: 1px solid #161625 !important;
+    border-bottom: 1px solid #161625 !important;
+    border-left: 1px solid #161625 !important;
+    border-right: 1px solid #161625 !important;
     
     border-radius: 12px !important;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
   }
 
-  /* --- 2. HOVER (SOLO MORADO PARA TODOS) --- */
+  /* --- 1. HOVER ÚNICO (SOLO MORADO) --- */
   
-  /* Al pasar el ratón, forzamos que SIEMPRE sea morado, da igual la categoría */
   #post-list .card:hover,
   #post-list .card-wrapper:hover {
-    background-color: #1a1a2e !important; /* Un pelín más claro */
+    background-color: #1a1a2e !important; 
     
-    /* BORDE NEÓN: Aquí imponemos tu color */
+    /* Aquí forzamos el borde morado en los 4 lados */
     border: 1px solid #6a11cb !important; 
     border-color: #6a11cb !important;
     
     box-shadow: 0 0 20px rgba(106, 17, 203, 0.3) !important;
-    text-decoration: none !important;
+    transform: translateY(-2px); /* Un pequeño movimiento para que se sienta vivo */
   }
 
-  /* --- 3. TEXTOS (LEGIBILIDAD) --- */
+  /* --- 2. TEXTOS Y METADATA --- */
   
-  .card-title {
-    color: #e0e0e0 !important;
-    transition: color 0.3s;
+  .card-title { color: #e0e0e0 !important; }
+  .card-text p { color: #a0a0a0 !important; }
+  
+  /* Forzamos el color de los iconos y texto de abajo, que a veces heredan el color de categoría */
+  .post-meta, 
+  .post-meta i,
+  .post-meta span {
+    color: #707090 !important; 
   }
   
-  .card-text p {
-    color: #a0a0a0 !important;
-  }
-  
-  .post-meta {
-    color: #707090 !important;
-  }
-  
-  .post-meta i {
-    color: #707090 !important;
-  }
-  
-  /* Hover Textos */
+  /* Al pasar el ratón */
   #post-list .card:hover .card-title { color: #ffffff !important; }
-  #post-list .card:hover .post-meta { color: #d4b3ff !important; }
-  #post-list .card:hover .post-meta i { color: #d4b3ff !important; }
+  #post-list .card:hover .post-meta,
+  #post-list .card:hover .post-meta i { 
+    color: #d4b3ff !important; 
+  }
 
 
-  /* --- 4. BARRA LATERAL (INTOCABLE) --- */
-  
+  /* --- 3. BARRA LATERAL (INTOCABLE) --- */
   #sidebar .site-title {
     background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
@@ -118,7 +112,7 @@ permalink: /blog/
   }
   #sidebar .nav-link:hover i { color: #ffffff !important; }
 
-  /* Tags Panel Derecho */
+  /* Tags */
   .post-tag {
     background: rgba(84, 11, 163, 0.1) !important;
     border: 1px solid rgba(84, 11, 163, 0.3) !important;
