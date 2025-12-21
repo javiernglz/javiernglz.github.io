@@ -6,14 +6,9 @@ title: Blue Team
 permalink: /blueteam/
 ---
 
-<ul>
-  {% for post in site.categories['Blue Team'] %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      - {{ post.date | date: "%d/%m/%Y" }}
-    </li>
-  {% endfor %}
-</ul>
+###  [1. Análisis de malware en Documentos y URLs]({% post_url 
+2025-12-21-analisis-docs-url %})
+> Guía de triaje para analizar la legitimidad de documentos y enlaces sospechosos según la sensibilidad de la información (confidencial o pública).
 
 ---
 
