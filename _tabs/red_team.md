@@ -12,11 +12,9 @@ permalink: /redteam/
 
 ---
 
-
-
-
-
-
+###  [1. Pivoting con Metasploit en Linux]({% post_url 
+2025-12-21-pivoting-metasploit.md %})
+> Guía paso a paso con una infografía para realizar el pivoting de una máquina a otra de forma sencilla utilizando la herramienta Metasploit en Linux.
 
 ---
 
