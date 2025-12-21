@@ -5,7 +5,7 @@ order: 2
 title: eCPPT
 permalink: /ecppt/
 ---
-# Certified Professional Penetration Tester {: .subtitulo-pegado }
+<h1 class="subtitulo-pegado">Certified Professional Penetration Tester</h1>
 
 <small>_Haz clic en un título para leer el artículo completo y acceder a las 
 descargas:_</small>
