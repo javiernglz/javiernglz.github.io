@@ -84,13 +84,22 @@ _Protección de la información._
     text-shadow: 0px 0px 30px rgba(69, 104, 220, 0.2);
   }
   
-  /* 2. Botón Activo del Menú */
-  #sidebar .nav-item.active .nav-link {
-    background: rgba(106, 17, 203, 0.15) !important;
-    color: #ffffffff !important;
-    border: 1px solid rgba(106, 17, 203, 0.3) !important;
+  /* AL PASAR EL RATÓN (SOLUCIÓN DE LEGIBILIDAD) */
+  #sidebar .nav-link:hover {
+    color: #ffffff !important; /* TEXTO BLANCO (Se lee perfecto) */
+    background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* Resplandor */
   }
-  #sidebar .nav-item.active .nav-link i { color: #4568dc !important; }
+  
+  #sidebar .nav-link:hover i {
+    color: #ffffff !important; /* Icono Blanco */
+  }
+
+  /* Iconos de abajo */
+  #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #a3b8ff !important; }
+  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
+
 
   /* 3. Enlaces Generales */
   a { color: #8eaafb !important; text-decoration: none; }

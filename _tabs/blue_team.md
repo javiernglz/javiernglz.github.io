@@ -31,13 +31,22 @@ permalink: /blueteam/
     -webkit-text-fill-color: transparent !important;
   }
 
-  /* 3. El botón activo de la izquierda */
-  #sidebar .nav-item.active .nav-link {
-    background: rgba(125, 42, 232, 0.15) !important; 
-    color: #bfa3ff !important; 
-    border: 1px solid rgba(125, 42, 232, 0.3) !important;
-    box-shadow: 0 0 10px rgba(125, 42, 232, 0.2);
+  /* AL PASAR EL RATÓN (SOLUCIÓN DE LEGIBILIDAD) */
+  #sidebar .nav-link:hover {
+    color: #ffffff !important; /* TEXTO BLANCO (Se lee perfecto) */
+    background: rgba(84, 11, 163, 0.4) !important; /* Fondo Morado Transparente */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(84, 11, 163, 0.4); /* Resplandor */
   }
+  
+  #sidebar .nav-link:hover i {
+    color: #ffffff !important; /* Icono Blanco */
+  }
+
+  /* Iconos de abajo */
+  #sidebar .sidebar-bottom a, #sidebar .sidebar-bottom i { color: #a3b8ff !important; }
+  #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
+
 
   /* 4. Icono del escudo en la barra lateral */
   #sidebar .nav-item.active .nav-link i {
