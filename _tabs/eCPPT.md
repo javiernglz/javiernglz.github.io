@@ -2,10 +2,10 @@
 layout: page
 icon: fas fa-shield-virus
 order: 2
-title: eCPPT (Certified Professional Penetration Tester)
+title: eCPPT
 permalink: /ecppt/
 ---
-
+# Certified Professional Penetration Tester
 <small>_Haz clic en un título para leer el artículo completo y acceder a las 
 descargas:_</small>
 

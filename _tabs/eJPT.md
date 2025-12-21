@@ -2,10 +2,10 @@
 layout: page
 icon: fas fa-shield-virus
 order: 1
-title: eJPT (Junior Penetration Tester)
+title: eJPT
 permalink: /ejpt/
 ---
-
+# Junior Penetration Tester
 La reconocida certificación eJPT mide nuestra capacidad para enumerar redes desconocidas y pivotar manualmente mediante enrutamiento estático, además de dominar los fundamentos de Metasploit. Aquí te dejo mi "Cheat Sheet" o chuleta de referencia.
 
 ## Mi preparación para eJPTv2 (Junior Penetration Tester)
