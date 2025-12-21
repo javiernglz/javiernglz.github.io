@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Pivoting con Metasploit en Linux (Guía Visual)"
+title: "Pivoting con Metasploit en Linux"
 date: 2025-12-21
 categories: [Red Team]
 tags: [metasploit, pivoting, linux, eCPPTv3, lateral movement]

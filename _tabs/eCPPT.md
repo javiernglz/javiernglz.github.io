@@ -29,7 +29,7 @@ presentarse al examen.
 <style>
   /* 1. Título principal de la página con degradado */
   h1 {
-    background: linear-gradient(90deg, #b06ab3, #4568dc) !important;
+    background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 800;
@@ -38,7 +38,7 @@ presentarse al examen.
 
   /* 2. Tu nombre en la Barra Lateral (J.avi Security) */
   #sidebar .site-title {
-    background: linear-gradient(90deg, #b06ab3, #4568dc) !important;
+    background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
   }

@@ -109,7 +109,7 @@ Si encuentras hashes en `/etc/shadow` o bases de datos:
 <style>
   /* 1. Título principal de la página con degradado */
   h1 {
-    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
+    background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 800;
@@ -118,7 +118,7 @@ Si encuentras hashes en `/etc/shadow` o bases de datos:
 
   /* 2. Tu nombre en la Barra Lateral (J.avi Security) */
   #sidebar .site-title {
-    background: linear-gradient(90deg, #540ba3, #4568dc) !important;
+    background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
   }
@@ -141,7 +141,7 @@ Si encuentras hashes en `/etc/shadow` o bases de datos:
     color: #a3b8ff; 
   }
   a:hover {
-    color: #b06ab3; 
+    color: #6a11cb; 
     text-decoration: none;
   }
 </style>

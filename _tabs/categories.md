@@ -8,7 +8,7 @@ hide: true
 <style>
   /* Título principal y Barra lateral con degradado */
   h1, #sidebar .site-title {
-    background: linear-gradient(90deg, #b06ab3, #4568dc) !important;
+    background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     font-weight: 700;
