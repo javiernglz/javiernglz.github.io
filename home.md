@@ -35,54 +35,65 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 1. TARJETAS DE LOS ARTÍCULOS (EL CAMBIO SUTIL) --- */
+  /* --- 1. FORZADO DE TARJETAS (SOBREESCRIBIR TEMA) --- */
   
-  #post-list .card {
-    /* Fondo Morado Oscuro Profundo (Casi negro, pero con tono) */
-    background-color: #161625 !important; 
+  /* Atacamos tanto a .card como a .card-wrapper para que no escape nada */
+  #post-list .card, 
+  #post-list .card-wrapper {
+    /* FONDO: Morado muy oscuro (Casi negro) */
+    background-color: #161625 !important;
+    background: #161625 !important;
     
-    /* Borde del mismo color para que sea sutil de primeras */
+    /* BORDE INICIAL: Del mismo color que el fondo (Invisible/Sutil) */
+    /* El !important aquí anula el color naranja/azul de las categorías */
     border: 1px solid #161625 !important;
+    border-color: #161625 !important;
     
-    /* Un poco de redondeo para modernizar */
     border-radius: 12px !important;
-    
-    /* Sombra suave para que no quede plano del todo */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
   }
 
-  /* ESTADO HOVER (AL PASAR EL RATÓN) */
-  #post-list .card:hover {
-    /* El fondo se queda igual o cambia mínimamente */
-    background-color: #1a1a2e !important; 
+  /* --- 2. HOVER (SOLO MORADO PARA TODOS) --- */
+  
+  /* Al pasar el ratón, forzamos que SIEMPRE sea morado, da igual la categoría */
+  #post-list .card:hover,
+  #post-list .card-wrapper:hover {
+    background-color: #1a1a2e !important; /* Un pelín más claro */
     
-    /* LO ÚNICO QUE DESTACA: El borde brilla en tu morado */
-    border: 1px solid #6a11cb !important;
+    /* BORDE NEÓN: Aquí imponemos tu color */
+    border: 1px solid #6a11cb !important; 
+    border-color: #6a11cb !important;
     
-    /* Un resplandor muy suave */
-    box-shadow: 0 0 15px rgba(106, 17, 203, 0.2) !important;
+    box-shadow: 0 0 20px rgba(106, 17, 203, 0.3) !important;
+    text-decoration: none !important;
   }
 
-  /* --- 2. TEXTOS (PARA QUE SE LEAN SOBRE FONDO OSCURO) --- */
+  /* --- 3. TEXTOS (LEGIBILIDAD) --- */
   
   .card-title {
-    color: #e0e0e0 !important; /* Blanco roto */
+    color: #e0e0e0 !important;
+    transition: color 0.3s;
   }
   
   .card-text p {
-    color: #a0a0a0 !important; /* Gris medio */
+    color: #a0a0a0 !important;
   }
   
   .post-meta {
-    color: #707090 !important; /* Azul grisáceo apagado */
+    color: #707090 !important;
   }
   
-  /* Al pasar el ratón, los textos se iluminan un poco */
+  .post-meta i {
+    color: #707090 !important;
+  }
+  
+  /* Hover Textos */
   #post-list .card:hover .card-title { color: #ffffff !important; }
-  #post-list .card:hover .post-meta { color: #a3b8ff !important; }
+  #post-list .card:hover .post-meta { color: #d4b3ff !important; }
+  #post-list .card:hover .post-meta i { color: #d4b3ff !important; }
 
 
-  /* --- 3. BARRA LATERAL (TU ESTILO QUE YA FUNCIONABA) --- */
+  /* --- 4. BARRA LATERAL (INTOCABLE) --- */
   
   #sidebar .site-title {
     background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
@@ -106,8 +117,8 @@ permalink: /blog/
     box-shadow: 0 0 15px rgba(84, 11, 163, 0.4);
   }
   #sidebar .nav-link:hover i { color: #ffffff !important; }
-  
-  /* Tags del panel derecho */
+
+  /* Tags Panel Derecho */
   .post-tag {
     background: rgba(84, 11, 163, 0.1) !important;
     border: 1px solid rgba(84, 11, 163, 0.3) !important;
