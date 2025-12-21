@@ -112,7 +112,9 @@ Si encuentras hashes en `/etc/shadow` o bases de datos:
     background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-    font-weight: 800;
+    font-weight: 1100;
+    width: fit-content;
+    display: inline-block;
     text-shadow: 0px 0px 30px rgba(69, 104, 220, 0.2);
   }
 

@@ -78,7 +78,10 @@ _Protección de la información._
     background: linear-gradient(90deg, #6a11cb, #4568dc) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
+    width: fit-content;
+    display: inline-block;
     font-weight: 800;
+    text-shadow: 0px 0px 30px rgba(69, 104, 220, 0.2);
   }
   
   /* 2. Botón Activo del Menú */
