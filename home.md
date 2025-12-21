@@ -35,14 +35,32 @@ permalink: /blog/
 </div>
 
 <style>
-  /* --- 0. RESET NUCLEAR (ESTO SOLUCIONA LA MEZCLA DE TEMAS) --- */
-  /* Borramos los estilos por defecto de Chirpy/Bootstrap que ensucian el diseño */
+  /* --- 0. RESET NUCLEAR REFORZADO (ADIÓS FANTASMAS) --- */
+  /* Eliminamos TODO rastro del contenedor padre original */
   
   #post-list .card, 
-  #post-list .card-body {
-    background-color: transparent !important; /* Quita el fondo gris/blanco feo */
-    border: none !important;                 /* Quita el borde aburrido */
-    box-shadow: none !important;             /* Quita la sombra por defecto */
+  #post-list .card-body,
+  .card-wrapper {
+    background-color: transparent !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important; /* Reseteamos margen para que no empuje */
+  }
+
+  /* IMPORTANTE: Eliminamos capas ocultas (pseudo-elementos) que crean sombras raras */
+  #post-list .card::before, #post-list .card::after,
+  .card-wrapper::before, .card-wrapper::after {
+    display: none !important;
+    content: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Aseguramos que el hover original no se active */
+  .card-wrapper:hover {
+    box-shadow: none !important;
+    transform: none !important;
+    background: none !important;
   }
 
   /* --- 1. BARRA LATERAL (TU REFERENCIA) --- */
@@ -75,46 +93,49 @@ permalink: /blog/
   #sidebar .sidebar-bottom a:hover, #sidebar .sidebar-bottom i:hover { color: #9d52ffff !important; }
 
 
-  /* --- 2. ARTÍCULOS CENTRALES (EL ARREGLO VISUAL) --- */
+  /* --- 2. ARTÍCULOS CENTRALES (EL ESTILO DEFINITIVO) --- */
   
-  /* Ahora aplicamos el estilo al enlace contenedor (.post-preview) */
+  /* Estilo base */
   .post-preview {
-    background: rgba(30, 30, 40, 0.4) !important; /* Un fondo base muy sutil y oscuro para que no flote en la nada */
-    border: 1px solid rgba(84, 11, 163, 0.1) !important; /* Borde casi invisible */
+    background: rgba(30, 30, 40, 0.6) !important; /* Un poco más oscuro para tapar cualquier cosa detrás */
+    border: 1px solid rgba(84, 11, 163, 0.1) !important;
     border-radius: 15px !important; 
     padding: 20px !important;
-    margin-bottom: 20px !important; /* Separación entre artículos */
+    margin-bottom: 20px !important; 
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* TRUCO: Backdrop filter para efecto cristal moderno */
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px);
   }
 
-  /* EL EFECTO HOVER NEÓN LIMPIO */
+  /* HOVER NEÓN */
   .post-preview:hover {
-    background: rgba(84, 11, 163, 0.25) !important; /* Fondo morado translúcido */
-    border: 1px solid rgba(132, 0, 255, 0.5) !important; /* Borde brillante */
-    box-shadow: 0 0 25px rgba(84, 11, 163, 0.35) !important; /* Resplandor */
-    transform: translateY(-3px) scale(1.01); /* Pequeño "salto" hacia el usuario */
-    z-index: 10; /* Asegura que brille por encima de todo */
+    background: rgba(84, 11, 163, 0.25) !important; 
+    border: 1px solid rgba(132, 0, 255, 0.5) !important; 
+    box-shadow: 0 0 25px rgba(84, 11, 163, 0.35) !important; 
+    transform: translateY(-4px) scale(1.01); 
+    z-index: 99; 
     text-decoration: none !important;
   }
 
-  /* Ajuste de colores de texto al hacer hover */
+  /* Ajuste de textos */
   .post-preview:hover .card-title { color: #ffffff !important; text-shadow: 0 0 10px rgba(132,0,255,0.4); }
   .post-preview:hover .card-text p { color: #e0e0e0 !important; }
   .post-preview:hover .post-meta { color: #d4b3ff !important; }
   .post-preview:hover i { color: #d4b3ff !important; }
 
-  /* Títulos en estado normal */
   .card-title { 
     color: #e0e0e0 !important; 
     font-weight: 700;
+    transition: color 0.3s;
   }
 
 
-  /* --- 3. PANEL DERECHO & TAGS (UNIFICACIÓN) --- */
+  /* --- 3. PANEL DERECHO & TAGS --- */
   
   #panel-wrapper h3, #panel-wrapper .panel-heading { color: #828282 !important; }
   
-  /* Enlaces de "Updated Recent" */
   #panel-wrapper li a { 
     color: #a3b8ff !important; 
     padding: 5px 8px;
@@ -129,18 +150,17 @@ permalink: /blog/
     text-decoration: none !important;
   }
 
-  /* TAGS - Las pastillas redondas */
+  /* TAGS Redondos */
   .post-tag {
-    background: transparent !important; /* Sin fondo en reposo */
+    background: transparent !important; 
     color: #a3b8ff !important;
     border: 1px solid rgba(84, 11, 163, 0.3) !important;
-    border-radius: 50px !important; /* SÚPER REDONDO */
+    border-radius: 50px !important; 
     padding: 6px 14px !important;
     font-size: 0.85rem !important;
     transition: all 0.3s ease;
   }
 
-  /* TAGS HOVER - COPIA EXACTA DEL SIDEBAR */
   .post-tag:hover {
     background: rgba(84, 11, 163, 0.5) !important; 
     color: #ffffff !important;
