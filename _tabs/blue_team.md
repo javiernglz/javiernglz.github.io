@@ -6,12 +6,12 @@ title: Blue Team
 permalink: /blueteam/
 ---
 
-###  [1. Análisis de malware en Documentos y URLs]({% post_url 
-2025-12-21-analisis-docs-url %})
+### [1. Análisis de malware en Documentos y URLs]({% post_url 2025-12-21-analisis-docs-url %})
 > Guía de triaje para analizar la legitimidad de documentos y enlaces sospechosos según la sensibilidad de la información (confidencial o pública).
 
-###  [2. Reglas YARA]({% post_url 2025-12-23-yara-rules %})
+### [2. Reglas YARA]({% post_url 2025-12-23-yara-rules %})
 > Guía para aprender a detectar amenazas definiendo patrones.
+
 ---
 
 <style>
