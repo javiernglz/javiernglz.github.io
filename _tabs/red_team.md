@@ -16,9 +16,11 @@ permalink: /redteam/
 2025-12-21-pivoting-metasploit %})
 > Guía paso a paso con una infografía para realizar el pivoting de una máquina a otra de forma sencilla utilizando la herramienta Metasploit en Linux.
 
+###  [2. Cómo escapar de un contenedor Docker]({% post_url 
+2025-12-24-docker-vulnerabilidad %})
+> Entendiendo la arquitectura de Docker y cómo pivotar entre contenedores abusando de una vulnerabilidad en el socket.
+
 ---
-
-
 
 <style>
 
