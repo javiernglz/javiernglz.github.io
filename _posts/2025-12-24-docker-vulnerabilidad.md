@@ -12,7 +12,7 @@ Recientemente me encontré con un escenario que ilustra perfectamente uno de los
 
 Para entender cómo un simple error de configuración puede comprometer todo un servidor, primero debemos ver cómo funciona Docker por dentro. He preparado esta infografía para guiarnos durante el análisis.
 
-![Arquitectura Docker y Vulnerabilidad de Socket](/assets/img/docker_vulnerabilidad.png)
+![Arquitectura Docker y Vulnerabilidad de Socket](/assets/img/docker_infografia.png)
 
 ## 1. Partes de Docker
 
@@ -30,7 +30,7 @@ Antes de pasar al ataque, miremos la infografía de arriba. Docker no es una sol
 
 * **Contenedores:** A la derecha, en azul. Es lo que ocurre cuando el Daemon coge una Imagen y la pone a funcionar. Son entornos aislados.
 
-## 2. El Caso Real: "Contenedor B"
+## 2. En la práctica: el objetivo es el Contenedor B
 
 Durante el pentesting, conseguí acceso a uno de estos contenedores (marcado en la imagen como **"Contenedor B / Compromised"**).
 
@@ -42,35 +42,33 @@ ls -la /var/run/docker.sock
 
 El administrador había cometido el error de **montar el Unix Socket dentro del contenedor**. Básicamente, había metido el "cable" de administración dentro de la celda de la prisión.
 
-## 3. El Ataque: Abuso de Socket
+## 3. El Ataque: Abuso de la vulnerabilidad del Socket
 
-Fijaos en la **línea discontinua roja** de la infografía. Ese es el camino que se abre ante nosotros.
+Fijaos en la **línea discontinua roja** de la infografía. Ese es el camino que he descubierto gracias al comando anterior.
 
 Al tener acceso al archivo `.sock`, mi usuario dentro del contenedor (aunque no sea root en el host) puede enviar instrucciones directamente al Daemon (que SÍ es root en el host).
 
-### Paso 1: Verificar el control
-Para confirmar que tenemos línea directa con el "Rey", lanzamos un comando de cliente desde dentro del contenedor hackeado:
+Para confirmar que tenemos línea directa con Daemon, lanzamos un comando desde dentro del contenedor hackeado:
 
 ```bash
 docker ps
 ```
 
-Si el comando responde listando todos los contenedores de la infraestructura, confirmamos que hemos roto el aislamiento.
+Si el comando responde listando todos los contenedores de la infraestructura, confirmamos que he roto la capa de aislamiento.
 
-### Paso 2: Pivoting (El Salto)
-El objetivo de un Red Teamer no suele ser quedarse en un contenedor web, sino llegar a la base de datos o a un contenedor de gestión con credenciales. En la imagen, queremos saltar al **Contenedor A**.
+El objetivo ahora es hacer pivoting para llegar a la base de datos o a un contenedor de gestión con credenciales. En la imagen, queremos saltar al **Contenedor A**.
 
-Como controlamos al Daemon, podemos pedirle que nos ejecute una shell en ese otro contenedor vecino:
+Como controlamos al Daemon, podemos pedirle que nos ejecute una shell en el otro contenedor:
 
 ```bash
 docker exec -it contenedor_A bash
 ```
 
-## 4. Impacto y Conclusión
+## 4. Conclusión
 
-Al ejecutar ese comando, hemos convertido una vulnerabilidad en un contenedor aislado en un **movimiento lateral** exitoso. Si hubiéramos querido ser más destructivos, podríamos haber montado la raíz del disco duro del servidor en un contenedor nuevo, tomando control total del sistema operativo anfitrión.
+Al ejecutar ese comando, hemos convertido una vulnerabilidad en un contenedor aislado en un **movimiento lateral** exitoso. Si hubiese querido ser más destructivo, podríamos haber montado la raíz del disco duro del servidor en un contenedor nuevo, tomando control total del sistema operativo anfitrión.
 
 ### ¿Cómo evitar esto?
-Mirando la infografía, la solución es visualmente obvia: **Corta la línea roja**.
+Mirando la infografía, la solución es obvia: **Arreglar la línea roja**.
 
-Nunca montes `/var/run/docker.sock` en un contenedor a menos que sea estrictamente necesario. Si necesitas que un contenedor "vea" a otros (como en herramientas de monitoreo tipo Portainer), utiliza un **Proxy de Socket** de solo lectura o configura una API segura con autenticación TLS.
+Por lo que nunca hay que montar `/var/run/docker.sock` en un contenedor a menos que sea estrictamente necesario. Si necesitas que un contenedor vea a otros, utiliza un **Proxy de Socket** de solo lectura o configura una API segura con autenticación TLS.
