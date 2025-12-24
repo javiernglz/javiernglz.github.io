@@ -11,9 +11,7 @@ Recientemente me encontré con un escenario que ilustra perfectamente uno de los
 
 Para entender cómo un simple error de configuración puede comprometer todo un servidor, primero debemos ver cómo funciona Docker por dentro. He preparado esta infografía para guiarnos durante el análisis.
 
-<div style="text-align: center;">
-  <img src="/assets/img/docker_infografia.png" alt="Esquema de la arquitectura Docker y la vulnerabilidad del socket expuesto" width="80%">
-</div>
+<img src="/assets/img/docker_infografia.png" alt="Esquema de la arquitectura Docker y la vulnerabilidad del socket expuesto" width="65%" style="display: block; margin-left: auto; margin-right: auto;">
 
 ## 1. Partes de Docker
 
