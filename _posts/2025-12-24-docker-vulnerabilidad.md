@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Como escapar de un contenedor Docker"
-date: 2025-12-24 18:00:00 -0000
+date: 2025-12-24 17:00:00 -0000
 categories: [RedTeam]
 tags: [docker, pentesting, seguridad, linux, pivoting]
 author: "Javier N. González"
