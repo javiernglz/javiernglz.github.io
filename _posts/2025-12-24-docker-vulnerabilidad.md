@@ -5,14 +5,15 @@ date: 2025-12-24 17:00:00 -0000
 categories: [RedTeam]
 tags: [docker, pentesting, seguridad, linux, pivoting]
 author: "Javier N. González"
-description: "Caso práctico de Red Team: Entendiendo la arquitectura de Docker y cómo pivotar entre contenedores abusando de una vulnerabilidad en el socket."
 ---
 
 Recientemente me encontré con un escenario que ilustra perfectamente uno de los riesgos más comunes en este tipo de entornos: la exposición innecesaria del socket de Docker.
 
 Para entender cómo un simple error de configuración puede comprometer todo un servidor, primero debemos ver cómo funciona Docker por dentro. He preparado esta infografía para guiarnos durante el análisis.
 
-![Arquitectura Docker y Vulnerabilidad de Socket](/assets/img/docker_infografia.png)
+<div style="text-align: center;">
+  <img src="/assets/img/docker_infografia.png" width="80%">
+</div>
 
 ## 1. Partes de Docker
 
