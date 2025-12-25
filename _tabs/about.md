@@ -1,7 +1,7 @@
 ---
-# the default layout is 'page'
 icon: fas fa-info-circle
 order: 6
+title: Sobre mí
 ---
 
 Soy estudiante en 42 Telefónica Málaga y cuento con una sólida formación en Ingeniería en Tecnologías Industriales. Me especializo en ciberseguridad, me estoy preparanto la certificación eCPPT y cuento con más de un año de experiencia en el análisis de vulnerabilidades y el pentesting, validada por la certificación eJPT de INE y por los laboratorios prácticos y 'paths' de TryHackMe. Trabajo de Formador de Competencias Digitales, promoviendo la ciberseguridad, la alfabetización digital y el impulso profesional. Tengo experiencia en lenguajes de programación como C, C++, ensamblador, SQL y scripting con Python. Mi perfil se caracteriza por una fuerte capacidad de resolución de problemas y una creciente pasión por el análisis de seguridad informática.
