@@ -1,0 +1,12 @@
+# _data/locales/es.yml
+
+tabs:
+  home: Inicio         # Aquí forzamos "Inicio" en vez de "Home"
+  categories: Categorías
+  tags: Etiquetas
+  archives: Archivos
+  about: Sobre mí      # Aquí forzamos "Sobre mí" en vez de "About" o "Acerca de"
+
+footer:
+  theme: Tema
+  platform: para
