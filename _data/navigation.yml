@@ -1,0 +1,30 @@
+# _data/navigation.yml
+
+main:
+  - title: Inicio
+    url: /
+    icon: fas fa-home
+
+  - title: eJPT
+    url: /ejpt/
+    icon: fas fa-shield-virus
+
+  - title: eCPPT
+    url: /ecppt/
+    icon: fas fa-shield-virus
+
+  - title: Docencia
+    url: /clases/
+    icon: fas fa-chalkboard-teacher
+
+  - title: Blue Team
+    url: /blueteam/
+    icon: fas fa-shield-halved
+
+  - title: Red Team
+    url: /redteam/
+    icon: fas fa-user-ninja
+
+  - title: Sobre mí
+    url: /about/
+    icon: fas fa-info-circle
