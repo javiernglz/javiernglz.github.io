@@ -1,4 +1,5 @@
 ---
+loyout: page
 icon: fas fa-info-circle
 order: 6
 title: Sobre mí
