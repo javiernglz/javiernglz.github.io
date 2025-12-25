@@ -1,0 +1,4 @@
+/* Ocultar el botón de Categorías del menú lateral */
+.nav-item a[href*="categories"] {
+    display: none !important;
+}
