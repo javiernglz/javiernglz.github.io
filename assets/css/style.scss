@@ -2,3 +2,35 @@
 .nav-item a[href*="categories"] {
     display: none !important;
 }
+
+/* --- Estética Clean & Polished para Tags --- */
+
+/* Estilo base para los tags en los posts y listas */
+.post-tags .post-tag, 
+.tag-wrapper .tag {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;  /* Espacio interno para dar aire */
+  margin: 0 0.3rem 0.3rem 0; /* Separación entre tags */
+  background: rgba(120, 120, 120, 0.15); /* Fondo sutil semitransparente */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borde muy fino y elegante */
+  border-radius: 50px;      /* Bordes completamente redondeados (píldora) */
+  color: var(--text-muted); /* Color de texto suave (usa variables del tema) */
+  font-size: 0.85rem;       /* Tamaño de letra equilibrado */
+  font-weight: 500;
+  text-decoration: none !important; /* Quitar subrayado si lo hubiera */
+  transition: all 0.2s ease-in-out; /* Animación suave */
+}
+
+/* Efecto Hover (al pasar el ratón) */
+.post-tags .post-tag:hover,
+.tag-wrapper .tag:hover {
+  background: var(--link-color); /* Usa el color de acento de tu web (azul/verde/etc) */
+  color: #fff !important;        /* Texto blanco para contraste */
+  border-color: transparent;     /* El borde desaparece para ser más limpio */
+  transform: translateY(-2px);   /* Pequeño efecto de elevación */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Ajuste opcional para el icono o el hash # si quieres ocultarlo */
+/* Descomenta la siguiente línea si prefieres tags sin símbolos */
+/* .post-tags .post-tag::before { content: ""; margin-right: 0; } */
