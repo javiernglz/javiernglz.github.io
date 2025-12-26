@@ -1,0 +1,95 @@
+---
+layout: default
+---
+
+<article class="px-1" data-toc="{{ site.toc }}">
+  <header>
+    <h1 data-toc-skip>{{ page.title }}</h1>
+
+    <div class="post-meta text-muted">
+      <span>
+        Creado
+        {% include datetime.html date=page.date lang=lang %}
+      </span>
+
+      {% if page.last_modified_at and page.last_modified_at != page.date %}
+      <span>
+        Actualizado
+        {% include datetime.html date=page.last_modified_at lang=lang %}
+      </span>
+      {% endif %}
+
+      {% if page.image %}
+        {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
+        {% capture class %}class="preview-img"{% endcapture %}
+        {% capture alt %}alt="{{ page.image.alt | default: "Preview Image" }}"{% endcapture %}
+
+        {% if page.image.lqip %}
+          {% capture lqip %}lqip="{{ page.image.lqip }}"{% endcapture %}
+        {% endif %}
+
+        <div class="mt-3 mb-3">
+          <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip }}>
+        </div>
+      {% endif %}
+
+      {% if page.tags.size > 0 %}
+      <div class="post-tags mt-3 mb-3">
+        {% for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/" class="post-tag no-text-decoration">
+            {{ tag }}
+          </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="d-flex justify-content-between">
+        <span>
+          Por
+          <em>
+            {% if page.author %}
+              {{ page.author }}
+            {% else %}
+              {{ site.social.name }}
+            {% endif %}
+          </em>
+        </span>
+
+        <div>
+          <span>
+            <i class="far fa-clock fa-fw"></i>
+            {% include read-time.html content=content %}
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    {{ content }}
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pt-3 border-top">
+      <div class="license-wrapper">
+        {% if site.data.locales[lang].copyright.license.template %}
+          {% capture _replacement %}
+            <a href="{{ site.data.locales[lang].copyright.license.link }}">
+              {{ site.data.locales[lang].copyright.license.name }}
+            </a>
+          {% endcapture %}
+          {{ site.data.locales[lang].copyright.license.template | replace: ':LICENSE_NAME', _replacement }}
+        {% endif %}
+      </div>
+
+      {% include share-buttons.html %}
+    </div>
+  </div>
+</article>
+
+<script type="text/javascript">
+  // Pequeño script para ocultar los tags de abajo si el tema los inyecta automáticamente
+  document.addEventListener("DOMContentLoaded", function() {
+    var bottomTags = document.querySelector('.post-tail-wrapper .post-tags');
+    if(bottomTags) bottomTags.style.display = 'none';
+  });
+</script>
