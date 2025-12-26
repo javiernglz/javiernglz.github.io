@@ -3,14 +3,12 @@
 
 @import 'main';
 
-/* Ocultar el botón de Categorías del menú lateral */
+/* 1. OCULTAR CATEGORÍAS DEL MENÚ */
 .nav-item a[href*="categories"] {
     display: none !important;
 }
 
-/* --- Estética Clean & Polished para Tags --- */
-
-/* Estilo base para los tags en los posts y listas */
+/* 2. ESTÉTICA DE TAGS (PÍLDORAS) */
 .post-tags .post-tag, 
 .tag-wrapper .tag {
   display: inline-block;
@@ -26,7 +24,6 @@
   transition: all 0.2s ease-in-out;
 }
 
-/* Efecto Hover (al pasar el ratón) */
 .post-tags .post-tag:hover,
 .tag-wrapper .tag:hover {
   background: var(--link-color);
@@ -36,28 +33,47 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* --- Diseño de 2 Columnas para la Portada --- */
-
-@media (min-width: 768px) { /* Solo se activa en tablets y ordenadores */
-  #post-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Crea las 2 columnas */
-    gap: 1.5rem; /* Espacio entre los artículos */
+/* 3. DISEÑO 2 COLUMNAS (ESTILO BYTEBYTEGO) */
+@media (min-width: 768px) {
+  /* Contenedor de la lista de posts */
+  #post-list { 
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 2rem !important; 
+    padding-top: 1rem;
   }
 
-  /* Ajuste de las tarjetas para que ocupen bien el espacio */
+  /* Tarjetas individuales */
   .card-wrapper.card {
     height: 100%;
-    margin-bottom: 0 !important; /* El espacio lo gestiona el 'gap' del grid */
+    margin-bottom: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px !important;
+    background-color: var(--card-bg);
+    transition: transform 0.2s ease;
   }
 
-  /* Si quieres que la imagen salga arriba en lugar de al lado en 2 columnas */
+  .card-wrapper.card:hover {
+    transform: scale(1.02);
+  }
+
+  /* Forzar imagen arriba y texto abajo */
   .post-preview {
+    display: flex !important;
     flex-direction: column !important;
   }
-  
+
   .post-preview .col-md-5, 
   .post-preview .col-md-7 {
     width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  
+  /* Ajuste de imagen para que no se deforme */
+  .post-preview img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
   }
 }
