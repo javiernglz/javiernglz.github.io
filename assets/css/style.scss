@@ -35,3 +35,29 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* --- Diseño de 2 Columnas para la Portada --- */
+
+@media (min-width: 768px) { /* Solo se activa en tablets y ordenadores */
+  #post-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crea las 2 columnas */
+    gap: 1.5rem; /* Espacio entre los artículos */
+  }
+
+  /* Ajuste de las tarjetas para que ocupen bien el espacio */
+  .card-wrapper.card {
+    height: 100%;
+    margin-bottom: 0 !important; /* El espacio lo gestiona el 'gap' del grid */
+  }
+
+  /* Si quieres que la imagen salga arriba en lugar de al lado en 2 columnas */
+  .post-preview {
+    flex-direction: column !important;
+  }
+  
+  .post-preview .col-md-5, 
+  .post-preview .col-md-7 {
+    width: 100% !important;
+  }
+}
