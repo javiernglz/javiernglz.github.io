@@ -1,0 +1,19 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. Encontrar el contenedor de tags original (abajo)
+  var tagBlock = document.querySelector('.post-tags');
+  
+  // 2. Encontrar el título o la metadata (arriba)
+  var postMeta = document.querySelector('.post-meta');
+  
+  // 3. Si ambos existen, mover los tags arriba
+  if (tagBlock && postMeta) {
+    // Clona los tags para moverlos
+    postMeta.parentNode.insertBefore(tagBlock, postMeta.nextSibling);
+    
+    // Añadir un poco de margen para que no se pegue al texto
+    tagBlock.style.marginTop = "1rem";
+    tagBlock.style.marginBottom = "1rem";
+  }
+});
+</script>
