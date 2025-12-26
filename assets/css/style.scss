@@ -3,77 +3,49 @@
 
 @import 'main';
 
-/* 1. OCULTAR CATEGORÍAS DEL MENÚ */
-.nav-item a[href*="categories"] {
-    display: none !important;
+/* 1. LIMPIEZA DE MENÚ Y NAVEGACIÓN */
+.nav-item a[href*="categories"], 
+.nav-item a[href*="archives"] {
+  display: none !important;
 }
 
-/* 2. ESTÉTICA DE TAGS (PÍLDORAS) */
-.post-tags .post-tag, 
-.tag-wrapper .tag {
-  display: inline-block;
-  padding: 0.35rem 0.8rem;
-  margin: 0 0.3rem 0.3rem 0;
-  background: rgba(120, 120, 120, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-decoration: none !important;
-  transition: all 0.2s ease-in-out;
+/* 2. ESTÉTICA DE TARJETAS (ESTILO LIMPIO) */
+.card-wrapper.card {
+  border: 1px solid rgba(128, 128, 128, 0.1) !important;
+  background-color: var(--card-bg) !important;
+  border-radius: 14px !important; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
-.post-tags .post-tag:hover,
-.tag-wrapper .tag:hover {
-  background: var(--link-color);
-  color: #fff !important;
-  border-color: transparent;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.card-wrapper.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* 3. DISEÑO 2 COLUMNAS (ESTILO BYTEBYTEGO) */
-@media (min-width: 768px) {
-  /* Contenedor de la lista de posts */
-  #post-list { 
+/* 3. TAGS ESTILO PÍLDORA (MODERNO) */
+.post-tag {
+  background: rgba(var(--link-color-rgb), 0.15) !important;
+  color: var(--link-color) !important;
+  border-radius: 50px !important; /* Forma de píldora total */
+  padding: 0.3rem 0.8rem !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  border: none !important;
+}
+
+/* 4. DISEÑO EN DOS COLUMNAS PARA LA PORTADA */
+@media (min-width: 992px) {
+  #post-list {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important; 
-    gap: 2rem !important; 
-    padding-top: 1rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
   }
+}
 
-  /* Tarjetas individuales */
-  .card-wrapper.card {
-    height: 100%;
-    margin-bottom: 0 !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    border-radius: 12px !important;
-    background-color: var(--card-bg);
-    transition: transform 0.2s ease;
-  }
-
-  .card-wrapper.card:hover {
-    transform: scale(1.02);
-  }
-
-  /* Forzar imagen arriba y texto abajo */
-  .post-preview {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .post-preview .col-md-5, 
-  .post-preview .col-md-7 {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 100% !important;
-  }
-  
-  /* Ajuste de imagen para que no se deforme */
-  .post-preview img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
+/* 5. AJUSTE DE IMÁGENES EN LA PREVISUALIZACIÓN */
+.post-preview img {
+  border-radius: 10px;
+  object-fit: cover;
 }
